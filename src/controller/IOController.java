@@ -10,11 +10,11 @@ import java.io.IOException;
 
 public class IOController 
 {
-	public void playSound()
+	public static void playSound(String fileName)
 	{
 		try
 		{
-			File soundFile = new File("/Users/rphi8796/Documents/Java/DualProject/src/sounds/Come On.wav");
+			File soundFile = new File("/Users/rphi8796/Documents/Java/DualProject/src/sounds/" + fileName + ".wav");
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			Clip comeOn = AudioSystem.getClip();
 			comeOn.open(audioIn);

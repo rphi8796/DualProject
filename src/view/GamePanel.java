@@ -58,10 +58,6 @@ public class GamePanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, twoTwo, 0, SpringLayout.EAST, oneTwo);
 		twoThree = new JButton();
 		appLayout.putConstraint(SpringLayout.NORTH, twoThree, 210, SpringLayout.NORTH, this);
-		twoThree.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		appLayout.putConstraint(SpringLayout.WEST, twoThree, 0, SpringLayout.WEST, oneThree);
 		appLayout.putConstraint(SpringLayout.SOUTH, twoThree, -400, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, twoThree, 0, SpringLayout.EAST, oneThree);

@@ -1,6 +1,7 @@
 package view;
 
 import controller.DualController;
+import model.Data;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -212,7 +213,21 @@ public class GamePanel extends JPanel
 	
 	public void setupListeners()
 	{
+		sound.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				Data.soundClicked = true;
+			}
+		});
 		
+		position.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				Data.positionClicked = true;
+			}
+		});
 	}
 	
 }

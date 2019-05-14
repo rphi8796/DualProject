@@ -13,8 +13,6 @@ public class DualController
 {
 	public DualFrame appFrame;
 	public static GamePanel appPanel;
-	private ArrayList<Integer> randomPositions;
-	private ArrayList<Integer> randomSounds;
 	private ArrayList<String> nameOfFiles;
 	private ArrayList<String> nameOfPositions;
 	
@@ -23,8 +21,6 @@ public class DualController
 		appFrame = new DualFrame(this);
 		appPanel = (GamePanel) appFrame.getContentPane();
 	
-		Data.sounds = new ArrayList<String>();
-		Data.positions = new ArrayList<String>();
 		
 		nameOfFiles = new ArrayList<String>(
 				Arrays.asList("ComeOn",
@@ -46,15 +42,22 @@ public class DualController
 						));
 		createTheLists();
 		startGame();
+		checkTheLists();
 		System.out.println(Data.positions);
 		System.out.println(Data.sounds);
+		
 	}
 	
 	public void startGame()
 	{
-		for(int i = 2; i < 42; i+=2)
+		for(int i = 5; i < 65; i+=3)
 		{
 			new Reminder(i);
+		}
+		
+		for(int i = 7; i < 65; i+= 3)
+		{
+			new Reminder("Panel", i);
 		}
 	}
 	
@@ -68,5 +71,10 @@ public class DualController
 			Data.sounds.add(nameOfFiles.get(sound));
 			Data.positions.add(nameOfPositions.get(pos));
 		}
+	}
+	
+	public void checkTheLists()
+	{
+		new Reminder();
 	}
 }

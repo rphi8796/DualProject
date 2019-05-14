@@ -1,9 +1,7 @@
 package model;
 
-import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
-import view.GamePanel;
 import controller.DualController;
 import controller.IOController;
 
@@ -23,5 +21,26 @@ public class GameTask extends TimerTask
 		Data.soundIndex++;
 		DualController.appPanel.changeColor(Data.positions.get(Data.positionIndex));
 		Data.positionIndex++;
+		if(Data.soundClicked)
+		{
+			Data.userSoundClicks.add("click");
+			Data.soundClicked = false;
+		}
+		else
+		{
+			Data.userSoundClicks.add("no");
+		}
+		
+		if(Data.positionClicked)
+		{
+			Data.userPositionClicks.add("click");
+			Data.positionClicked = false;
+		}
+		else
+		{
+			Data.userPositionClicks.add("no");
+		}
+		timer.cancel();
+		
 	}
 }

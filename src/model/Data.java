@@ -4,24 +4,13 @@ import java.util.ArrayList;
 
 public class Data 
 {
-	public static ArrayList<String> sounds;
-	public static ArrayList<String> positions;
-	public static ArrayList<String> userSoundClicks;
-	public static ArrayList<String> userPositionClicks;
-	public static boolean soundClicked;
-	public static boolean positionClicked;
-	public static int soundIndex;
-	public static int positionIndex;
+	public static ArrayList<String> sounds = new ArrayList<String>();
+	public static ArrayList<String> positions = new ArrayList<String>();
+	public static ArrayList<String> userSoundClicks = new ArrayList<String>();
+	public static ArrayList<String> userPositionClicks = new ArrayList<String>();
+	public static boolean soundClicked = false;
+	public static boolean positionClicked = false;
+	public static int soundIndex= 0;
+	public static int positionIndex = 0;
 	
-	public Data()
-	{
-		sounds = new ArrayList<String>();
-		positions = new ArrayList<String>();
-		userSoundClicks = new ArrayList<String>(); 
-		userPositionClicks= new ArrayList<String>(); 
-		soundClicked = false;
-		positionClicked = false;
-		soundIndex = 0;
-		positionIndex = 0;
-	}
 }

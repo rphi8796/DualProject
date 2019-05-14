@@ -10,6 +10,8 @@ public class Data
 	public static ArrayList<String> userPositionClicks;
 	public static boolean soundClicked;
 	public static boolean positionClicked;
+	public static int soundIndex;
+	public static int positionIndex;
 	
 	public Data()
 	{
@@ -19,5 +21,7 @@ public class Data
 		userPositionClicks= new ArrayList<String>(); 
 		soundClicked = false;
 		positionClicked = false;
+		soundIndex = 0;
+		positionIndex = 0;
 	}
 }

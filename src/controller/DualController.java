@@ -11,17 +11,17 @@ import model.Reminder;
 
 public class DualController 
 {
-	DualFrame appFrame;
-	GamePanel appPanel;
-	ArrayList<Integer> randomPositions;
-	ArrayList<Integer> randomSounds;
-	ArrayList<String> nameOfFiles;
-	ArrayList<String> nameOfPositions;
+	public DualFrame appFrame;
+	public static GamePanel appPanel;
+	private ArrayList<Integer> randomPositions;
+	private ArrayList<Integer> randomSounds;
+	private ArrayList<String> nameOfFiles;
+	private ArrayList<String> nameOfPositions;
 	
 	public void start()
 	{
 		appFrame = new DualFrame(this);
-		appPanel = new GamePanel(this);
+		appPanel = (GamePanel) appFrame.getContentPane();
 	
 		Data.sounds = new ArrayList<String>();
 		Data.positions = new ArrayList<String>();
@@ -45,9 +45,17 @@ public class DualController
 						"threeThree"
 						));
 		createTheLists();
+		startGame();
 		System.out.println(Data.positions);
 		System.out.println(Data.sounds);
-		
+	}
+	
+	public void startGame()
+	{
+		for(int i = 2; i < 42; i+=2)
+		{
+			new Reminder(i);
+		}
 	}
 	
 	public void createTheLists()
@@ -61,5 +69,4 @@ public class DualController
 			Data.positions.add(nameOfPositions.get(pos));
 		}
 	}
-	
 }

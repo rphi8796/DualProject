@@ -16,12 +16,25 @@ public class DualController
 	private ArrayList<String> nameOfFiles;
 	private ArrayList<String> nameOfPositions;
 	
-	public void start()
+	
+	/**
+	 * constructor for DualController. It sets the appFrame and appPanel
+	 * to more global variables
+	 */
+	public DualController()
 	{
 		appFrame = new DualFrame(this);
 		appPanel = (GamePanel) appFrame.getContentPane();
+	}
 	
-		
+	/**
+	 * This initializes the list of file names and the list of positions that 
+	 * can be selected so that it easier to create the random lists. This method then
+	 * calls createTheLists(), startGame(), and checkTheLists(). I am also having it
+	 * print out the random lists just so I can check the program.
+	 */
+	public void start()
+	{
 		nameOfFiles = new ArrayList<String>(
 				Arrays.asList("ComeOn",
 						"Falcon",
@@ -48,6 +61,12 @@ public class DualController
 		
 	}
 	
+	/**
+	 * initializes new reminders after five seconds and then schedules the
+	 * tasks 3 seconds apart. Then it uses a different constructor of reminder
+	 * to call the method to set all the buttons on the screen back to white 
+	 * after one has been blue for 2 seconds.
+	 */
 	public void startGame()
 	{
 		for(int i = 5; i < 65; i+=3)
@@ -61,6 +80,11 @@ public class DualController
 		}
 	}
 	
+	/**
+	 * uses a for loop to add twenty values from the possible values.
+	 * it creates a permutation of how things will happen. It stores the values
+	 * in variables and then adds them to their corresponding list.
+	 */
 	public void createTheLists()
 	{
 		for(int i = 0; i < 20; i++)
@@ -73,6 +97,11 @@ public class DualController
 		}
 	}
 	
+	/**
+	 * initializes another constructor of reminder. After this is called, the
+	 * panel will switch to the result screens and the computer will check if
+	 * the player clicked the right button at the time of a repetition.
+	 */
 	public void checkTheLists()
 	{
 		new Reminder();

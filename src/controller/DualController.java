@@ -15,16 +15,21 @@ public class DualController
 	public static GamePanel appPanel;
 	private ArrayList<String> nameOfFiles;
 	private ArrayList<String> nameOfPositions;
+	public static int n; 
+	public static int score;
 	
 	
 	/**
-	 * constructor for DualController. It sets the appFrame and appPanel
-	 * to more global variables
+	 * constructor for DualController. It sets or initializes 
+	 * the appFrame, appPanel, n, and score.
+	 * 
 	 */
 	public DualController()
 	{
 		appFrame = new DualFrame(this);
 		appPanel = (GamePanel) appFrame.getContentPane();
+		n = 2; //will later become appPanel.getN()
+		score = 0;
 	}
 	
 	/**
@@ -106,4 +111,28 @@ public class DualController
 	{
 		new Reminder();
 	}
+	
+	public static void gradePlayer(ArrayList<String> soundPermutation, ArrayList<String> positionPermutation, 
+							ArrayList<String> userSound, ArrayList<String> userPosition)
+	{
+		for(int soundIndex = n; soundIndex < 20; soundIndex++)
+		{
+			int previousIndex = soundIndex - n;
+			if(soundPermutation.get(soundIndex).equals(soundPermutation.get(previousIndex)))
+			{
+				if(userSound.get(soundIndex).equals("click"))
+				{
+					score++;
+				}
+			}
+			else
+			{
+				if(!(userSound.get(soundIndex).equals("click")))
+				{
+					score++;
+				}
+			}
+		}
+	}
+	
 }

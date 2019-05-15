@@ -12,5 +12,4 @@ public class Data
 	public static boolean positionClicked = false;
 	public static int soundIndex= 0;
 	public static int positionIndex = 0;
-	
 }

@@ -12,6 +12,13 @@ public class DualFrame extends JFrame
 	private DualController app;
 	private GamePanel appPanel;
 	
+	/**
+	 * Inherits the constructor from JFrame. Then the constructor
+	 * assigns the member app to the parameter app. appPanel is then
+	 * initialized with app as its parameter. Calls to setupFrame().
+	 * 
+	 * @param app
+	 */
 	public DualFrame(DualController app)
 	{
 		super();
@@ -21,6 +28,10 @@ public class DualFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * sets the panel inside the frame, title, and dimension. sets frame to exit on close,
+	 * does not allow the frame to be resized, and sets the frame to be visible.
+	 */
 	public void setupFrame()
 	{
 		this.setContentPane(appPanel);

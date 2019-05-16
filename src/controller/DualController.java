@@ -133,6 +133,25 @@ public class DualController
 				}
 			}
 		}
+		
+		for(int positionIndex = n; positionIndex < 20; positionIndex++)
+		{
+			int previousIndex = positionIndex - n;
+			if(positionPermutation.get(positionIndex).equals(positionPermutation.get(previousIndex)))
+			{
+				if(userSound.get(positionIndex).equals("click"))
+				{
+					score++;
+				}
+			}
+			else
+			{
+				if(!(userSound.get(positionIndex).equals("click")))
+				{
+					score++;
+				}
+			}
+		}
 	}
 	
 }

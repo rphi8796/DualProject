@@ -24,6 +24,7 @@ public class GamePanel extends JPanel
 	private JButton threeThree;
 	private JButton sound;
 	private JButton position;
+	private JButton back;
 	
 	public GamePanel(DualController app)
 	{
@@ -34,61 +35,61 @@ public class GamePanel extends JPanel
 		
 
 		oneOne = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, oneOne, 10, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, oneOne, 10, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, oneOne, -690, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, oneOne, 34, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, oneOne, 88, SpringLayout.WEST, this);
 		oneTwo = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, oneTwo, 10, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, oneTwo, 40, SpringLayout.EAST, oneOne);
-		appLayout.putConstraint(SpringLayout.SOUTH, oneTwo, -600, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, oneOne, 0, SpringLayout.SOUTH, oneTwo);
+		appLayout.putConstraint(SpringLayout.NORTH, oneTwo, 34, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, oneTwo, 32, SpringLayout.EAST, oneOne);
 		oneThree = new JButton();
-		appLayout.putConstraint(SpringLayout.EAST, oneTwo, -40, SpringLayout.WEST, oneThree);
-		appLayout.putConstraint(SpringLayout.SOUTH, oneThree, -600, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.NORTH, oneThree, 10, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, oneThree, 690, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, oneThree, -10, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, oneThree, 34, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, oneThree, 30, SpringLayout.EAST, oneTwo);
+		appLayout.putConstraint(SpringLayout.EAST, oneThree, -100, SpringLayout.EAST, this);
 		twoOne = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, twoOne, 210, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, twoOne, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, twoOne, 88, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, oneOne, -16, SpringLayout.NORTH, twoOne);
+		appLayout.putConstraint(SpringLayout.EAST, oneOne, 0, SpringLayout.EAST, twoOne);
+		appLayout.putConstraint(SpringLayout.NORTH, twoOne, 240, SpringLayout.NORTH, this);
 		twoTwo = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, twoTwo, 210, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, twoTwo, -400, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, twoOne, 0, SpringLayout.SOUTH, twoTwo);
-		appLayout.putConstraint(SpringLayout.EAST, twoOne, -40, SpringLayout.WEST, twoTwo);
-		appLayout.putConstraint(SpringLayout.WEST, twoTwo, 0, SpringLayout.WEST, oneTwo);
-		appLayout.putConstraint(SpringLayout.EAST, twoTwo, 0, SpringLayout.EAST, oneTwo);
+		appLayout.putConstraint(SpringLayout.WEST, twoTwo, 370, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, oneTwo, -16, SpringLayout.NORTH, twoTwo);
+		appLayout.putConstraint(SpringLayout.EAST, oneTwo, 0, SpringLayout.EAST, twoTwo);
+		appLayout.putConstraint(SpringLayout.EAST, twoOne, -32, SpringLayout.WEST, twoTwo);
+		appLayout.putConstraint(SpringLayout.NORTH, twoTwo, 240, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, twoTwo, 0, SpringLayout.SOUTH, twoOne);
 		twoThree = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, twoThree, 210, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, twoThree, 0, SpringLayout.WEST, oneThree);
-		appLayout.putConstraint(SpringLayout.SOUTH, twoThree, -400, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, twoThree, 0, SpringLayout.EAST, oneThree);
+		appLayout.putConstraint(SpringLayout.SOUTH, twoThree, -350, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, twoTwo, -30, SpringLayout.WEST, twoThree);
+		appLayout.putConstraint(SpringLayout.SOUTH, oneThree, -16, SpringLayout.NORTH, twoThree);
+		appLayout.putConstraint(SpringLayout.WEST, twoThree, 650, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, twoThree, -100, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, twoThree, 0, SpringLayout.NORTH, twoOne);
 		threeOne = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, threeOne, 410, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, threeOne, 10, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, threeOne, -200, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.NORTH, threeOne, 450, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, threeOne, 88, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, threeOne, -662, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, twoOne, -20, SpringLayout.NORTH, threeOne);
 		threeTwo = new JButton();
-		appLayout.putConstraint(SpringLayout.NORTH, threeTwo, 410, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, threeTwo, -200, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, threeOne, -40, SpringLayout.WEST, threeTwo);
-		appLayout.putConstraint(SpringLayout.WEST, threeTwo, 0, SpringLayout.WEST, oneTwo);
-		appLayout.putConstraint(SpringLayout.EAST, threeTwo, 300, SpringLayout.WEST, oneTwo);
+		appLayout.putConstraint(SpringLayout.NORTH, threeTwo, 0, SpringLayout.NORTH, threeOne);
+		appLayout.putConstraint(SpringLayout.WEST, threeTwo, 32, SpringLayout.EAST, threeOne);
+		appLayout.putConstraint(SpringLayout.SOUTH, threeTwo, -140, SpringLayout.SOUTH, this);
 		threeThree = new JButton();
+		appLayout.putConstraint(SpringLayout.EAST, threeTwo, -30, SpringLayout.WEST, threeThree);
 		appLayout.putConstraint(SpringLayout.NORTH, threeThree, 0, SpringLayout.NORTH, threeOne);
-		appLayout.putConstraint(SpringLayout.WEST, threeThree, 0, SpringLayout.WEST, oneThree);
-		appLayout.putConstraint(SpringLayout.SOUTH, threeThree, 0, SpringLayout.SOUTH, threeOne);
-		appLayout.putConstraint(SpringLayout.EAST, threeThree, 0, SpringLayout.EAST, oneThree);
+		appLayout.putConstraint(SpringLayout.WEST, threeThree, 650, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, threeThree, -100, SpringLayout.EAST, this);
 		sound = new JButton("Sound");
+		appLayout.putConstraint(SpringLayout.SOUTH, threeOne, -25, SpringLayout.NORTH, sound);
 		appLayout.putConstraint(SpringLayout.NORTH, sound, 665, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, sound, 150, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, sound, 88, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, sound, -10, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, sound, 400, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, sound, 0, SpringLayout.EAST, oneOne);
 		position = new JButton("Position");
+		appLayout.putConstraint(SpringLayout.SOUTH, threeThree, -25, SpringLayout.NORTH, position);
 		appLayout.putConstraint(SpringLayout.NORTH, position, 0, SpringLayout.NORTH, sound);
-		appLayout.putConstraint(SpringLayout.WEST, position, 250, SpringLayout.EAST, sound);
+		appLayout.putConstraint(SpringLayout.WEST, position, 0, SpringLayout.WEST, oneThree);
 		appLayout.putConstraint(SpringLayout.SOUTH, position, 0, SpringLayout.SOUTH, sound);
 		appLayout.putConstraint(SpringLayout.EAST, position, -100, SpringLayout.EAST, this);
-	
+		back = new JButton("Back");
 		
 		setupButtons();
 		setupPanel();
@@ -204,6 +205,7 @@ public class GamePanel extends JPanel
 		this.add(threeThree);
 		this.add(sound);
 		this.add(position);
+		this.add(back);
 	}
 	
 	public void setupLayout()

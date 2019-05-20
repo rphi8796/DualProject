@@ -46,16 +46,15 @@ public class DualController
 				Arrays.asList("oneOne", 
 						"oneTwo", 
 						"oneThree", 
-						"twoOne", 
-						"twoTwo", 
+						"twoOne",  
 						"twoThree", 
 						"threeOne",
 						"threeTwo",
 						"threeThree"
 						));
-		createTheLists();
-		startGame();
-		checkTheLists();
+//		createTheLists();
+//		startGame();
+//		checkTheLists();
 		System.out.println(Data.positions);
 		System.out.println(Data.sounds);
 		

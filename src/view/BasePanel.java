@@ -19,7 +19,6 @@ public class BasePanel extends JPanel
 	private SpringLayout appLayout;
 	private JPanel basePanel;
 	private GamePanel game;
-	private JButton backButton;
 	private StartPanel start;
 	private JButton startButton;
 	private JPanel results;
@@ -42,7 +41,6 @@ public class BasePanel extends JPanel
 		appLayout = new SpringLayout();
 		
 		startButton = (JButton)(start.getComponent(0));
-		backButton = (JButton)(game.getComponent(0));
 		
 		setupSubpanels();
 		setupPanel();
@@ -77,15 +75,7 @@ public class BasePanel extends JPanel
 			{
 				CardLayout cl = (CardLayout) (basePanel.getLayout());
 				cl.show(basePanel, GAME);
-			}
-		});
-		
-		backButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click)
-			{
-				CardLayout cl = (CardLayout) (basePanel.getLayout());
-				cl.show(basePanel, START);
+				app.startGame();
 			}
 		});
 	}

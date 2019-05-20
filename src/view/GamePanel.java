@@ -194,6 +194,7 @@ public class GamePanel extends JPanel
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(1000, 800));
+		this.add(back);
 		this.add(oneOne);
 		this.add(oneTwo);
 		this.add(oneThree);
@@ -205,7 +206,7 @@ public class GamePanel extends JPanel
 		this.add(threeThree);
 		this.add(sound);
 		this.add(position);
-		this.add(back);
+		
 	}
 	
 	public void setupLayout()

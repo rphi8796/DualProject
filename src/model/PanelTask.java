@@ -27,7 +27,7 @@ public class PanelTask extends TimerTask
 	 */
 	public void run()
 	{
-		DualController.appPanel.setButtonsToWhite();
+		DualController.appPanel.getGamePanel().setButtonsToWhite();
 		if(Data.soundClicked)
 		{
 			Data.userSoundClicks.add("click");

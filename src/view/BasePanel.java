@@ -17,9 +17,11 @@ public class BasePanel extends JPanel
 {
 	private DualController app;
 	private SpringLayout appLayout;
-	private CardLayout baseLayout;
 	private JPanel basePanel;
 	private GamePanel game;
+	private JButton backButton;
+	private StartPanel start;
+	private JButton startButton;
 	private JPanel results;
 	private JPanel history;
 	
@@ -35,8 +37,12 @@ public class BasePanel extends JPanel
 		
 		basePanel = new JPanel(new CardLayout());
 		game = new GamePanel(app);
+		start = new StartPanel(app);
 		
 		appLayout = new SpringLayout();
+		
+		startButton = (JButton)(start.getComponent(0));
+		backButton = (JButton)(game.getComponent(0));
 		
 		setupSubpanels();
 		setupPanel();
@@ -45,9 +51,10 @@ public class BasePanel extends JPanel
 	
 	private void setupSubpanels()
 	{
-		basePanel.setLayout(baseLayout);
 		basePanel.setPreferredSize(new Dimension(1000, 800));
-		basePanel.add(game);
+		basePanel.add(start, START);
+		basePanel.add(game, GAME);
+
 	}
 	
 	private void setupPanel()
@@ -57,9 +64,30 @@ public class BasePanel extends JPanel
 		this.add(basePanel);
 	}
 	
+	public GamePanel getGamePanel()
+	{
+		return game;
+	}
+	
 	private void setupListeners()
 	{
+		startButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				CardLayout cl = (CardLayout) (basePanel.getLayout());
+				cl.show(basePanel, GAME);
+			}
+		});
 		
+		backButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				CardLayout cl = (CardLayout) (basePanel.getLayout());
+				cl.show(basePanel, START);
+			}
+		});
 	}
 	
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import view.DualFrame;
-import view.GamePanel;
+import view.BasePanel;
 
 import model.Data;
 import model.Reminder;
@@ -12,7 +12,7 @@ import model.Reminder;
 public class DualController 
 {
 	public DualFrame appFrame;
-	public static GamePanel appPanel;
+	public static BasePanel appPanel;
 	private ArrayList<String> nameOfFiles;
 	private ArrayList<String> nameOfPositions;
 	public static int n; 
@@ -27,7 +27,7 @@ public class DualController
 	public DualController()
 	{
 		appFrame = new DualFrame(this);
-		appPanel = (GamePanel) appFrame.getContentPane();
+		appPanel = (BasePanel) (appFrame.getContentPane());
 		n = 1; //will later become appPanel.getN()
 		score = 0;
 	}
@@ -52,7 +52,7 @@ public class DualController
 						"threeTwo",
 						"threeThree"
 						));
-//		createTheLists();
+		createTheLists();
 //		startGame();
 //		checkTheLists();
 		System.out.println(Data.positions);

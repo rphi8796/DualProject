@@ -31,7 +31,7 @@ public class GameTask extends TimerTask
 	{
 		IOController.playSound(Data.sounds.get(Data.soundIndex));
 		Data.soundIndex++;
-		DualController.appPanel.changeColor(Data.positions.get(Data.positionIndex));
+		DualController.appPanel.getGamePanel().changeColor(Data.positions.get(Data.positionIndex));
 		Data.positionIndex++;
 		timer.cancel();
 		

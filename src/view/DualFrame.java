@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 public class DualFrame extends JFrame
 {
 	private DualController app;
-	private GamePanel appPanel;
+	private BasePanel appPanel;
 	
 	/**
 	 * Inherits the constructor from JFrame. Then the constructor
@@ -23,7 +23,7 @@ public class DualFrame extends JFrame
 	{
 		super();
 		this.app = app;
-		this.appPanel = new GamePanel(app);
+		this.appPanel = new BasePanel(app);
 		
 		setupFrame();
 	}

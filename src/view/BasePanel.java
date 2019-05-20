@@ -17,6 +17,8 @@ public class BasePanel extends JPanel
 {
 	private DualController app;
 	private SpringLayout appLayout;
+	private CardLayout card;
+	
 	private JPanel basePanel;
 	private GamePanel game;
 	private StartPanel start;
@@ -34,9 +36,11 @@ public class BasePanel extends JPanel
 		super();
 		this.app = app;
 		
-		basePanel = new JPanel(new CardLayout());
+		basePanel = new JPanel();
+		card = new CardLayout();
 		game = new GamePanel(app);
 		start = new StartPanel(app);
+		results = new ReviewPanel(app);
 		
 		appLayout = new SpringLayout();
 		
@@ -50,9 +54,11 @@ public class BasePanel extends JPanel
 	private void setupSubpanels()
 	{
 		basePanel.setPreferredSize(new Dimension(1000, 800));
+		basePanel.setLayout(card);
 		basePanel.add(start, START);
 		basePanel.add(game, GAME);
-
+		basePanel.add(results, RESULT);
+		
 	}
 	
 	private void setupPanel()
@@ -67,14 +73,18 @@ public class BasePanel extends JPanel
 		return game;
 	}
 	
+	public void changeToResults()
+	{
+		card.show(basePanel, RESULT);
+	}
+	
 	private void setupListeners()
 	{
 		startButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				CardLayout cl = (CardLayout) (basePanel.getLayout());
-				cl.show(basePanel, GAME);
+				card.show(basePanel, GAME);
 				app.startGame();
 			}
 		});

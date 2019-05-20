@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,7 +29,7 @@ public class DualController
 	{
 		appFrame = new DualFrame(this);
 		appPanel = (BasePanel) (appFrame.getContentPane());
-		n = 1; //will later become appPanel.getN()
+		n = 2; //will later become appPanel.getN()
 		score = 0;
 	}
 	
@@ -58,6 +59,7 @@ public class DualController
 		System.out.println(Data.positions);
 		System.out.println(Data.sounds);
 		
+		
 	}
 	
 	/**
@@ -77,6 +79,8 @@ public class DualController
 		{
 			new Reminder("Panel", i);
 		}
+		
+		checkTheLists();
 	}
 	
 	/**
@@ -103,6 +107,11 @@ public class DualController
 	 * panel will switch to the result screens and the computer will check if
 	 * the player clicked the right button at the time of a repetition.
 	 */
+	public static void displayResultsScreen()
+	{
+		appPanel.changeToResults();
+	}
+	
 	public void checkTheLists()
 	{
 		new Reminder();

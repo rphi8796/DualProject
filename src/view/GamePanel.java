@@ -218,7 +218,6 @@ public class GamePanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				Data.soundClicked = true;
-				System.out.println(DualController.score);
 			}
 		});
 		

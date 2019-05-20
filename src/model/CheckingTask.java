@@ -32,6 +32,7 @@ public class CheckingTask extends TimerTask
 		System.out.println(Data.userPositionClicks);
 		System.out.println(Data.userSoundClicks);
 		DualController.gradePlayer(Data.sounds, Data.positions, Data.userSoundClicks, Data.userPositionClicks);
+		System.out.println(DualController.score);
 		timer.cancel();
 	}
 }

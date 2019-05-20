@@ -28,5 +28,24 @@ public class PanelTask extends TimerTask
 	public void run()
 	{
 		DualController.appPanel.setButtonsToWhite();
+		if(Data.soundClicked)
+		{
+			Data.userSoundClicks.add("click");
+			Data.soundClicked = false;
+		}
+		else
+		{
+			Data.userSoundClicks.add("no");
+		}
+		
+		if(Data.positionClicked)
+		{
+			Data.userPositionClicks.add("click");
+			Data.positionClicked = false;
+		}
+		else
+		{
+			Data.userPositionClicks.add("no");
+		}
 	}
 }

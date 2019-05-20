@@ -28,7 +28,7 @@ public class DualController
 	{
 		appFrame = new DualFrame(this);
 		appPanel = (GamePanel) appFrame.getContentPane();
-		n = 2; //will later become appPanel.getN()
+		n = 1; //will later become appPanel.getN()
 		score = 0;
 	}
 	
@@ -41,12 +41,7 @@ public class DualController
 	public void start()
 	{
 		nameOfFiles = new ArrayList<String>(
-				Arrays.asList("ComeOn",
-						"Falcon",
-						"FalconKick",
-						"Punch",
-						"ShowMe",
-						"Yes"));
+				Arrays.asList("c", "h", "j", "k", "l", "o", "q", "r", "t"));
 		nameOfPositions = new ArrayList<String>(
 				Arrays.asList("oneOne", 
 						"oneTwo", 
@@ -74,12 +69,12 @@ public class DualController
 	 */
 	public void startGame()
 	{
-		for(int i = 5; i < 65; i+=3)
+		for(int i = 5; i < 85; i+=4)
 		{
 			new Reminder(i);
 		}
 		
-		for(int i = 7; i < 65; i+= 3)
+		for(int i = 8; i < 85; i+= 4)
 		{
 			new Reminder("Panel", i);
 		}
@@ -92,10 +87,12 @@ public class DualController
 	 */
 	public void createTheLists()
 	{
+		
 		for(int i = 0; i < 20; i++)
 		{
-			int pos = (int) (Math.random() * 9);
-			int sound = (int) (Math.random() * 6);
+			
+			int pos = (int) (Math.random() * nameOfPositions.size());
+			int sound = (int) (Math.random() * nameOfFiles.size());
 			
 			Data.sounds.add(nameOfFiles.get(sound));
 			Data.positions.add(nameOfPositions.get(pos));
@@ -115,7 +112,7 @@ public class DualController
 	public static void gradePlayer(ArrayList<String> soundPermutation, ArrayList<String> positionPermutation, 
 							ArrayList<String> userSound, ArrayList<String> userPosition)
 	{
-		for(int soundIndex = n; soundIndex < 20; soundIndex++)
+		for(int soundIndex = n; soundIndex < soundPermutation.size(); soundIndex++)
 		{
 			int previousIndex = soundIndex - n;
 			if(soundPermutation.get(soundIndex).equals(soundPermutation.get(previousIndex)))
@@ -134,7 +131,7 @@ public class DualController
 			}
 		}
 		
-		for(int positionIndex = n; positionIndex < 20; positionIndex++)
+		for(int positionIndex = n; positionIndex < positionPermutation.size(); positionIndex++)
 		{
 			int previousIndex = positionIndex - n;
 			if(positionPermutation.get(positionIndex).equals(positionPermutation.get(previousIndex)))

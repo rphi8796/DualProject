@@ -27,7 +27,7 @@ public class Reminder
 	public Reminder()
 	{
 		timerOne = new Timer();
-		timerOne.schedule(new CheckingTask(timerOne), 65 * 1000);
+		timerOne.schedule(new CheckingTask(timerOne), 85 * 1000);
 	}
 	
 	/**

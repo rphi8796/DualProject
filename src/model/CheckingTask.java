@@ -8,6 +8,7 @@ import controller.DualController;
 public class CheckingTask extends TimerTask
 {
 	private Timer timer;
+	private DualController app;
 	
 	/**
 	 * Uses TimerTask's constructor. the
@@ -15,10 +16,11 @@ public class CheckingTask extends TimerTask
 	 * 
 	 * @param timer
 	 */
-	public CheckingTask(Timer timer)
+	public CheckingTask(Timer timer, DualController app)
 	{
 		super();
 		this.timer = timer;
+		this.app = app;
 	}
 	
 	/**
@@ -31,9 +33,10 @@ public class CheckingTask extends TimerTask
 	{
 		System.out.println(Data.userPositionClicks);
 		System.out.println(Data.userSoundClicks);
-		DualController.gradePlayer(Data.sounds, Data.positions, Data.userSoundClicks, Data.userPositionClicks);
-		System.out.println(DualController.score);
-		DualController.displayResultsScreen();
+		app.gradePlayer(Data.sounds, Data.positions, Data.userSoundClicks, Data.userPositionClicks);
+		System.out.println(app.getScore());
+		app.getPanel().getReviewPanel().setResultsText();
+		app.displayResultsScreen();
 		timer.cancel();
 	}
 }

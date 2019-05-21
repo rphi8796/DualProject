@@ -122,7 +122,6 @@ public class GamePanel extends JPanel
 		oneTwo.setBackground(Color.white);
 		oneThree.setBackground(Color.white);
 		twoOne.setBackground(Color.white);
-		twoTwo.setBackground(Color.white);
 		twoThree.setBackground(Color.white);
 		threeOne.setBackground(Color.white);
 		threeTwo.setBackground(Color.white);
@@ -153,7 +152,7 @@ public class GamePanel extends JPanel
 		oneTwo.setBackground(Color.white);
 		oneThree.setBackground(Color.white);
 		twoOne.setBackground(Color.white);
-		twoTwo.setBackground(Color.white);
+		twoTwo.setBackground(Color.LIGHT_GRAY);
 		twoThree.setBackground(Color.white);
 		threeOne.setBackground(Color.white);
 		threeTwo.setBackground(Color.white);

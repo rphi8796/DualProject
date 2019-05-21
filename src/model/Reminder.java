@@ -1,6 +1,8 @@
 package model;
 
 import java.util.Timer;
+
+import controller.DualController;
 import model.GameTask;
 
 public class Reminder 
@@ -24,10 +26,10 @@ public class Reminder
 	/**
 	 * checks the game after it finishes in 65 seconds.
 	 */
-	public Reminder()
+	public Reminder(DualController app)
 	{
 		timerOne = new Timer();
-		timerOne.schedule(new CheckingTask(timerOne), 85 * 1000);
+		timerOne.schedule(new CheckingTask(timerOne, app), 86 * 1000);
 	}
 	
 	/**

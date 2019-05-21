@@ -24,15 +24,11 @@ public class StartPanel extends JPanel
 	private JButton history;
 	private JLabel title;
 	private JLabel nLabel;
-	private JComboBox numbers;
-	private Integer[] levels;
 	
 	public StartPanel(DualController app)
 	{
 		super();
 		this.app = app;
-		
-		levels = new Integer[] {1, 2, 3, 4, 5};
 		
 		appLayout = new SpringLayout();
 		start = new JButton("Start");
@@ -52,16 +48,10 @@ public class StartPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, title, 250, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, title, 70, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, title, 750, SpringLayout.WEST, this);
-		nLabel = new JLabel("N = ");
+		nLabel = new JLabel("N = " + app.getN());
 		appLayout.putConstraint(SpringLayout.NORTH, nLabel, 200, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, nLabel, 400, SpringLayout.WEST, this);
 		nLabel.setFont(new Font("Georgia", Font.PLAIN, 30));
-		numbers = new JComboBox(levels);
-		appLayout.putConstraint(SpringLayout.NORTH, numbers, -18, SpringLayout.NORTH, nLabel);
-		appLayout.putConstraint(SpringLayout.WEST, numbers, 9, SpringLayout.EAST, nLabel);
-		appLayout.putConstraint(SpringLayout.SOUTH, numbers, 57, SpringLayout.NORTH, nLabel);
-		appLayout.putConstraint(SpringLayout.EAST, numbers, 89, SpringLayout.EAST, nLabel);
-		numbers.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		
 		setupPanel();
 	}
@@ -74,7 +64,6 @@ public class StartPanel extends JPanel
 		this.add(history);
 		this.add(title);
 		this.add(nLabel);
-		this.add(numbers);
 	}
 	
 	

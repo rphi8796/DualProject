@@ -16,8 +16,8 @@ public class DualController
 	public static BasePanel appPanel;
 	private ArrayList<String> nameOfFiles;
 	private ArrayList<String> nameOfPositions;
-	public static int n; 
-	public static int score;
+	public int n; 
+	public int score;
 	
 	
 	/**
@@ -27,10 +27,11 @@ public class DualController
 	 */
 	public DualController()
 	{
+		n = 1; 
+		score = 0;
 		appFrame = new DualFrame(this);
 		appPanel = (BasePanel) (appFrame.getContentPane());
-		n = 2; //will later become appPanel.getN()
-		score = 0;
+		
 	}
 	
 	/**
@@ -94,11 +95,14 @@ public class DualController
 		for(int i = 0; i < 20; i++)
 		{
 			
-			int pos = (int) (Math.random() * nameOfPositions.size());
-			int sound = (int) (Math.random() * nameOfFiles.size());
+			Data.sounds.add(nameOfFiles.get(i % 3));
+			Data.positions.add(nameOfPositions.get(i % 1));
 			
-			Data.sounds.add(nameOfFiles.get(sound));
-			Data.positions.add(nameOfPositions.get(pos));
+//			int pos = (int) (Math.random() * nameOfPositions.size());
+//			int sound = (int) (Math.random() * nameOfFiles.size());
+//			
+//			Data.sounds.add(nameOfFiles.get(sound));
+//			Data.positions.add(nameOfPositions.get(pos));
 		}
 	}
 	
@@ -107,34 +111,49 @@ public class DualController
 	 * panel will switch to the result screens and the computer will check if
 	 * the player clicked the right button at the time of a repetition.
 	 */
-	public static void displayResultsScreen()
+	public void displayResultsScreen()
 	{
 		appPanel.changeToResults();
 	}
 	
 	public void checkTheLists()
 	{
-		new Reminder();
+		new Reminder(this);
 	}
 	
-	public static void gradePlayer(ArrayList<String> soundPermutation, ArrayList<String> positionPermutation, 
+	public int getN()
+	{
+		return n;
+	}
+	
+	public int getScore()
+	{
+		return score;
+	}
+	
+	public BasePanel getPanel()
+	{
+		return appPanel;
+	}
+	
+	public void gradePlayer(ArrayList<String> soundPermutation, ArrayList<String> positionPermutation, 
 							ArrayList<String> userSound, ArrayList<String> userPosition)
 	{
 		for(int soundIndex = n; soundIndex < soundPermutation.size(); soundIndex++)
 		{
 			int previousIndex = soundIndex - n;
-			if(soundPermutation.get(soundIndex).equals(soundPermutation.get(previousIndex)))
+			if((soundPermutation.get(soundIndex)).equals(soundPermutation.get(previousIndex)))
 			{
 				if(userSound.get(soundIndex).equals("click"))
 				{
-					score++;
+					//score++;
 				}
 			}
 			else
 			{
 				if(!(userSound.get(soundIndex).equals("click")))
 				{
-					score++;
+					//score++;
 				}
 			}
 		}

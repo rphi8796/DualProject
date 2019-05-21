@@ -22,12 +22,12 @@ public class ReviewPanel extends JPanel
 		super();
 		this.app = app;
 		appLayout = new SpringLayout();
-		scoreStatement = new JLabel("You got " + DualController.score + " out of " + (20 - DualController.n) + "!");
+		scoreStatement = new JLabel();
 		scoreStatement.setHorizontalAlignment(SwingConstants.CENTER);
 		scoreStatement.setFont(new Font("Georgia", Font.PLAIN, 30));
 		appLayout.putConstraint(SpringLayout.NORTH, scoreStatement, 50, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, scoreStatement, 90, SpringLayout.NORTH, this);
-		newN = new JLabel("N = 5");
+		newN = new JLabel("N = " + app.getN());
 		appLayout.putConstraint(SpringLayout.NORTH, newN, 210, SpringLayout.SOUTH, scoreStatement);
 		appLayout.putConstraint(SpringLayout.EAST, scoreStatement, 0, SpringLayout.EAST, newN);
 		appLayout.putConstraint(SpringLayout.WEST, scoreStatement, 0, SpringLayout.WEST, newN);
@@ -59,6 +59,11 @@ public class ReviewPanel extends JPanel
 		this.add(restart);
 		this.add(newN);
 		this.add(scoreStatement);
+	}
+	
+	public void setResultsText()
+	{
+		scoreStatement.setText("You got " + app.getScore() + " out of " + (40 - 2 * app.getN()) + "!");
 	}
 	
 	private void setupLayout()

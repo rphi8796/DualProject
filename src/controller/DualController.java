@@ -146,14 +146,14 @@ public class DualController
 			{
 				if(userSound.get(soundIndex).equals("click"))
 				{
-					//score++;
+					score++;
 				}
 			}
 			else
 			{
 				if(!(userSound.get(soundIndex).equals("click")))
 				{
-					//score++;
+					score++;
 				}
 			}
 		}
@@ -163,14 +163,14 @@ public class DualController
 			int previousIndex = positionIndex - n;
 			if(positionPermutation.get(positionIndex).equals(positionPermutation.get(previousIndex)))
 			{
-				if(userSound.get(positionIndex).equals("click"))
+				if(userPosition.get(positionIndex).equals("click"))
 				{
 					score++;
 				}
 			}
 			else
 			{
-				if(!(userSound.get(positionIndex).equals("click")))
+				if(!(userPosition.get(positionIndex).equals("click")))
 				{
 					score++;
 				}

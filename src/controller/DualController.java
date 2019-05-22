@@ -3,12 +3,14 @@ package controller;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 
 import view.DualFrame;
 import view.BasePanel;
 
 import model.Data;
 import model.Reminder;
+import model.UserData;
 
 public class DualController 
 {
@@ -19,7 +21,7 @@ public class DualController
 	public int n; 
 	public int score;
 	private int outOf;
-	
+	private ArrayList<UserData> save;
 	
 	
 	/**
@@ -29,11 +31,20 @@ public class DualController
 	 */
 	public DualController()
 	{
-		n = 1; 
+		if(!(IOController.loadUserData("User.dbn").isEmpty()))
+		{
+			save = IOController.loadUserData("User.dbn");
+		}
+		else
+		{
+			save = new ArrayList<UserData>();
+			save.add(new UserData());
+			IOController.saveUserData(save, "User.dbn");
+		}
+
+		n = (int) save.get(save.size() - 1).getN(); 
 		score = 0;
 		outOf = (20 - n) * 2;
-		
-		
 		appFrame = new DualFrame(this);
 		appPanel = (BasePanel) (appFrame.getContentPane());
 		
@@ -42,9 +53,26 @@ public class DualController
 	private int calculatePercentage(int score, int outOf)
 	{
 		double percent = ((double) score) / outOf;
-		percent = percent + 0.5;
-		int output = (int) percent;
+		percent = percent + 0.005;
+		int output = (int) (percent * 100);
 		return output;
+	}
+	
+	public void savePlay()
+	{
+		String stringDate = "";
+		Calendar date = Calendar.getInstance();
+		String year = "" + date.get(Calendar.YEAR);
+		stringDate += date.get(Calendar.MONTH);
+		stringDate += date.get(Calendar.DAY_OF_MONTH);
+		int integerDate = Integer.parseInt(stringDate);
+		if(getPercentage() >= 85)
+		{
+			n += 1;
+		}
+		UserData play = new UserData(getPercentage(), n, integerDate);
+		save.add(play);
+		IOController.saveUserData(save, "User.dbn");
 	}
 	
 	/**

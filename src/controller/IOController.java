@@ -57,13 +57,13 @@ public class IOController
 		}
 	}
 	
-	public static void saveUserData(UserData myUser, String saveFile)
+	public static void saveUserData(ArrayList<UserData> userList, String saveFile)
 	{
 		try
 		{
 			FileOutputStream saveStream = new FileOutputStream(saveFile);
 			ObjectOutputStream output = new ObjectOutputStream(saveStream);
-			output.writeObject(myUser);
+			output.writeObject(userList);
 			output.close();
 			saveStream.close();
 		}
@@ -72,18 +72,26 @@ public class IOController
 			error.printStackTrace();
 		}
 	}
-	
-	public static ArrayList<UserData> loadUserData(String saveFile)
+
+	public static ArrayList<UserData> loadUserData(String saveFile) 
 	{
-		try
-		{
 		ArrayList<UserData> saved = new ArrayList<UserData>();
-		FileInputStream inputStream = new FileInputStream(saveFile);
-		ObjectInputStream input = new ObjectInputStream(inputStream);
-		saved = (ArrayList<UserData>) input.readObject();
-		input.close();
-		inputStream.close();
-		return saved;
+		try 
+		{
+			FileInputStream inputStream = new FileInputStream(saveFile);
+			ObjectInputStream input = new ObjectInputStream(inputStream);
+			saved = (ArrayList<UserData>) input.readObject();
+			input.close();
+			inputStream.close();
+		} 
+		catch(IOException error) 
+		{
+			error.printStackTrace();
 		}
+		catch(ClassNotFoundException error)
+		{
+			error.printStackTrace();
+		}
+		return saved;
 	}
 }

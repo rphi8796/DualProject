@@ -17,9 +17,9 @@ public class UserData implements Serializable
 	
 	public UserData()
 	{
-		this.percentage = -99;
-		this.level = -98;
-		this.date = -97;
+		this.percentage = 0;
+		this.level = 1;
+		this.date = 1;
 		
 	}
 	
@@ -33,6 +33,16 @@ public class UserData implements Serializable
 	public int getPercentage()
 	{
 		return percentage;
+	}
+	
+	public int getN()
+	{
+		return level;
+	}
+	
+	public int getData()
+	{
+		return date;
 	}
 	
 	

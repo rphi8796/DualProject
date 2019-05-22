@@ -18,6 +18,8 @@ public class DualController
 	private ArrayList<String> nameOfPositions;
 	public int n; 
 	public int score;
+	private int outOf;
+	
 	
 	
 	/**
@@ -29,9 +31,20 @@ public class DualController
 	{
 		n = 1; 
 		score = 0;
+		outOf = (20 - n) * 2;
+		
+		
 		appFrame = new DualFrame(this);
 		appPanel = (BasePanel) (appFrame.getContentPane());
 		
+	}
+	
+	private int calculatePercentage(int score, int outOf)
+	{
+		double percent = ((double) score) / outOf;
+		percent = percent + 0.5;
+		int output = (int) percent;
+		return output;
 	}
 	
 	/**
@@ -95,14 +108,14 @@ public class DualController
 		for(int i = 0; i < 20; i++)
 		{
 			
-			Data.sounds.add(nameOfFiles.get(i % 3));
-			Data.positions.add(nameOfPositions.get(i % 1));
+//			Data.sounds.add(nameOfFiles.get(i % 3));
+//			Data.positions.add(nameOfPositions.get(i % 1));
 			
-//			int pos = (int) (Math.random() * nameOfPositions.size());
-//			int sound = (int) (Math.random() * nameOfFiles.size());
-//			
-//			Data.sounds.add(nameOfFiles.get(sound));
-//			Data.positions.add(nameOfPositions.get(pos));
+			int pos = (int) (Math.random() * nameOfPositions.size());
+			int sound = (int) (Math.random() * nameOfFiles.size());
+			
+			Data.sounds.add(nameOfFiles.get(sound));
+			Data.positions.add(nameOfPositions.get(pos));
 		}
 	}
 	
@@ -114,26 +127,6 @@ public class DualController
 	public void displayResultsScreen()
 	{
 		appPanel.changeToResults();
-	}
-	
-	public void checkTheLists()
-	{
-		new Reminder(this);
-	}
-	
-	public int getN()
-	{
-		return n;
-	}
-	
-	public int getScore()
-	{
-		return score;
-	}
-	
-	public BasePanel getPanel()
-	{
-		return appPanel;
 	}
 	
 	public void gradePlayer(ArrayList<String> soundPermutation, ArrayList<String> positionPermutation, 
@@ -176,6 +169,31 @@ public class DualController
 				}
 			}
 		}
+	}
+	
+	public void checkTheLists()
+	{
+		new Reminder(this);
+	}
+	
+	public int getN()
+	{
+		return n;
+	}
+	
+	public int getScore()
+	{
+		return score;
+	}
+	
+	public BasePanel getPanel()
+	{
+		return appPanel;
+	}
+	
+	public int getPercentage()
+	{
+		return calculatePercentage(score, outOf);
 	}
 	
 }

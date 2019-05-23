@@ -34,12 +34,14 @@ public class DualController
 		if(!(IOController.loadUserData("User.dbn").isEmpty()))
 		{
 			save = IOController.loadUserData("User.dbn");
+			IOController.saveToString("dbn.txt", save);
 		}
 		else
 		{
 			save = new ArrayList<UserData>();
 			save.add(new UserData());
 			IOController.saveUserData(save, "User.dbn");
+
 		}
 
 		n = (int) save.get(save.size() - 1).getN(); 
@@ -62,27 +64,49 @@ public class DualController
 	{
 		String stringDate = "";
 		Calendar date = Calendar.getInstance();
-		String year = "" + date.get(Calendar.YEAR);
-		stringDate += date.get(Calendar.MONTH);
-		stringDate += date.get(Calendar.DAY_OF_MONTH);
-		int integerDate = Integer.parseInt(stringDate);
-		if(getPercentage() >= 85)
+		stringDate += date.get(Calendar.MONTH) + "/";
+		stringDate += date.get(Calendar.DAY_OF_MONTH) + "/";
+		stringDate += date.get(Calendar.YEAR);
+		if(getPercentage() >= 90)
 		{
 			n += 1;
 		}
-		UserData play = new UserData(getPercentage(), n, integerDate);
+		else if(getPercentage() <= 75 && n > 1)
+		{
+			n -= 1;
+		}
+		UserData play = new UserData(getPercentage(), n, stringDate);
 		save.add(play);
 		IOController.saveUserData(save, "User.dbn");
+	}
+	
+	public void reset()
+	{
+		n = (int) save.get(save.size() - 1).getN(); 
+		score = 0;
+		outOf = (20 - n) * 2;
+		Data.soundIndex = 0;
+		Data.positionIndex = 0;
+		Data.userSoundClicks.clear();
+		Data.userPositionClicks.clear();
+		Data.positions.clear();
+		Data.positions.clear();
 	}
 	
 	/**
 	 * This initializes the list of file names and the list of positions that 
 	 * can be selected so that it easier to create the random lists. This method then
 	 * calls createTheLists(), startGame(), and checkTheLists(). I am also having it
-	 * print out the random lists just so I can check the program.
+	 * print out the random lists just so I can check the program.nappast9
+	 * 
+	 * initializes new reminders after five seconds and then schedules the
+	 * tasks 3 seconds apart. Then it uses a different constructor of reminder
+	 * to call the method to set all the buttons on the screen back to white 
+	 * after one has been blue for 2 seconds.
 	 */
-	public void start()
+	public void startGame()
 	{
+		reset();
 		nameOfFiles = new ArrayList<String>(
 				Arrays.asList("c", "h", "j", "k", "l", "o", "q", "r", "t"));
 		nameOfPositions = new ArrayList<String>(
@@ -96,22 +120,9 @@ public class DualController
 						"threeThree"
 						));
 		createTheLists();
-//		startGame();
-//		checkTheLists();
 		System.out.println(Data.positions);
 		System.out.println(Data.sounds);
 		
-		
-	}
-	
-	/**
-	 * initializes new reminders after five seconds and then schedules the
-	 * tasks 3 seconds apart. Then it uses a different constructor of reminder
-	 * to call the method to set all the buttons on the screen back to white 
-	 * after one has been blue for 2 seconds.
-	 */
-	public void startGame()
-	{
 		for(int i = 5; i < 85; i+=4)
 		{
 			new Reminder(i);
@@ -132,7 +143,6 @@ public class DualController
 	 */
 	public void createTheLists()
 	{
-		
 		for(int i = 0; i < 20; i++)
 		{
 			

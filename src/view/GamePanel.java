@@ -25,6 +25,7 @@ public class GamePanel extends JPanel
 	private JPanel gridPanel;
 	private JButton sound;
 	private JButton position;
+	private Color niceColor;
 	
 	public GamePanel(DualController app)
 	{
@@ -39,6 +40,8 @@ public class GamePanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, gridPanel, -136, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, gridPanel, -100, SpringLayout.EAST, this);
 				
+		niceColor = new Color(0, 191, 255);
+		
 		oneOne = new JButton();
 		oneTwo = new JButton();
 		oneThree = new JButton();
@@ -50,12 +53,14 @@ public class GamePanel extends JPanel
 		threeThree = new JButton();
 
 		sound = new JButton("Sound");
+		sound.setFont(new Font("Georgia", Font.PLAIN, 20));
 		appLayout.putConstraint(SpringLayout.NORTH, sound, 36, SpringLayout.SOUTH, gridPanel);
 		appLayout.putConstraint(SpringLayout.WEST, sound, 200, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, sound, -40, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, sound, 400, SpringLayout.WEST, this);
 
 		position = new JButton("Position");
+		position.setFont(new Font("Georgia", Font.PLAIN, 20));
 		appLayout.putConstraint(SpringLayout.NORTH, position, 0, SpringLayout.NORTH, sound);
 		appLayout.putConstraint(SpringLayout.WEST, position, 200, SpringLayout.EAST, sound);
 		appLayout.putConstraint(SpringLayout.SOUTH, position, -40, SpringLayout.SOUTH, this);
@@ -73,47 +78,47 @@ public class GamePanel extends JPanel
 		if(button.equals("oneOne"))
 		{
 			setButtonsToWhite();
-			oneOne.setBackground(Color.cyan);
+			oneOne.setBackground(niceColor);
 		}
 		else if(button.equals("oneTwo"))
 		{
 			setButtonsToWhite();
-			oneTwo.setBackground(Color.cyan);
+			oneTwo.setBackground(niceColor);
 		}
 		else if(button.equals("oneThree"))
 		{
 			setButtonsToWhite();
-			oneThree.setBackground(Color.cyan);
+			oneThree.setBackground(niceColor);
 		}
 		else if(button.equals("twoOne"))
 		{
 			setButtonsToWhite();
-			twoOne.setBackground(Color.cyan);
+			twoOne.setBackground(niceColor);
 		}
 		else if(button.equals("twoTwo"))
 		{
 			setButtonsToWhite();
-			twoTwo.setBackground(Color.cyan);
+			twoTwo.setBackground(niceColor);
 		}
 		else if(button.equals("twoThree"))
 		{
 			setButtonsToWhite();
-			twoThree.setBackground(Color.cyan);
+			twoThree.setBackground(niceColor);
 		}
 		else if(button.equals("threeOne"))
 		{
 			setButtonsToWhite();
-			threeOne.setBackground(Color.cyan);
+			threeOne.setBackground(niceColor);
 		}
 		else if(button.equals("threeTwo"))
 		{
 			setButtonsToWhite();
-			threeTwo.setBackground(Color.cyan);
+			threeTwo.setBackground(niceColor);
 		}
 		else
 		{
 			setButtonsToWhite();
-			threeThree.setBackground(Color.cyan);
+			threeThree.setBackground(niceColor);
 		}
 	}
 	public void setButtonsToWhite()

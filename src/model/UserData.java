@@ -6,9 +6,9 @@ public class UserData implements Serializable
 {
 	private int percentage;
 	private int level;
-	private int date;
+	private String date;
 	
-	public UserData(int score, int level, int date)
+	public UserData(int score, int level, String date)
 	{
 		this.percentage = score;
 		this.level = level;
@@ -19,7 +19,7 @@ public class UserData implements Serializable
 	{
 		this.percentage = 0;
 		this.level = 1;
-		this.date = 1;
+		this.date = "01/01/2000";
 		
 	}
 	
@@ -40,7 +40,7 @@ public class UserData implements Serializable
 		return level;
 	}
 	
-	public int getData()
+	public String getData()
 	{
 		return date;
 	}

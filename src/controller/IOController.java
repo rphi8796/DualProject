@@ -13,7 +13,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class IOController 
 {
@@ -37,7 +39,7 @@ public class IOController
 	{
 		try
 		{
-			File soundFile = new File("/Users/rphi8796/Documents/Java/DualProject/src/sounds/" + fileName + ".wav");
+			File soundFile = new File("/Users/ry/Documents/Java/DualProject/src/sounds/" + fileName + ".wav");
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			Clip comeOn = AudioSystem.getClip();
 			comeOn.open(audioIn);
@@ -93,5 +95,36 @@ public class IOController
 			error.printStackTrace();
 		}
 		return saved;
+	}
+	
+	public static void saveToString(String fileName, ArrayList<UserData> copy)
+	{
+		try
+		{
+			String allText = "";
+			
+			for(UserData plays : copy)
+			{
+				allText += System.lineSeparator() + plays.toString();
+			}
+			
+			File saveFile = new File(fileName);
+			Scanner textScanner = new Scanner(allText);
+			PrintWriter saveText = new PrintWriter(saveFile);
+			
+			while(textScanner.hasNext())
+			{
+				String currentLine = textScanner.nextLine();
+				saveText.println(currentLine);
+			}
+			
+			textScanner.close();
+			saveText.close();
+		}
+		catch(IOException error)
+		{
+			error.printStackTrace();
+		}
+
 	}
 }

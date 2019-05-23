@@ -22,6 +22,7 @@ public class DualController
 	public int score;
 	private int outOf;
 	private ArrayList<UserData> save;
+	private UserData myRecent;
 	
 	
 	/**
@@ -34,10 +35,21 @@ public class DualController
 		if(!(IOController.loadUserData("User.dbn").isEmpty()))
 		{
 			save = IOController.loadUserData("User.dbn");
-			IOController.saveToString("dbn.txt", save);
+		}
+		
+		myRecent = save.get(save.size() - 1);
+		n = (int) myRecent.getN(); 
+		
+		if(myRecent.getPercentage() >= 90)
+		{
+			n += 1;
+		}
+		else if(myRecent.getPercentage() <= 75 && myRecent.getN() > 1)
+		{
+			n -= 1;
 		}
 
-		n = (int) save.get(save.size() - 1).getN(); 
+		
 		score = 0;
 		outOf = (20 - n) * 2;
 		appFrame = new DualFrame(this);
@@ -60,22 +72,25 @@ public class DualController
 		stringDate += date.get(Calendar.MONTH) + "/";
 		stringDate += date.get(Calendar.DAY_OF_MONTH) + "/";
 		stringDate += date.get(Calendar.YEAR);
-		if(getPercentage() >= 90)
-		{
-			n += 1;
-		}
-		else if(getPercentage() <= 75 && n > 1)
-		{
-			n -= 1;
-		}
+
 		UserData play = new UserData(getPercentage(), n, stringDate);
 		save.add(play);
 		IOController.saveUserData(save, "User.dbn");
+		IOController.saveToString("dbn.txt", save);
 	}
 	
 	public void reset()
 	{
-		n = (int) save.get(save.size() - 1).getN(); 
+		n = (int) myRecent.getN(); 
+		
+		if(myRecent.getPercentage() >= 90)
+		{
+			n += 1;
+		}
+		else if(myRecent.getPercentage() <= 75 && myRecent.getN() > 1)
+		{
+			n -= 1;
+		}
 		score = 0;
 		outOf = (20 - n) * 2;
 		Data.soundIndex = 0;

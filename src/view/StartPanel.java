@@ -41,6 +41,14 @@ public class StartPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.SOUTH, history, -26, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, history, 260, SpringLayout.WEST, this);
 		title = new JLabel("Dual-N Back");
+		nLabel = new JLabel("N = ");
+		
+		setupPanel();
+		setupLayout();
+	}
+	
+	private void setupPanel()
+	{
 		appLayout.putConstraint(SpringLayout.NORTH, history, 624, SpringLayout.SOUTH, title);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setFont(new Font("Georgia", Font.PLAIN, 50));
@@ -53,17 +61,18 @@ public class StartPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, nLabel, 400, SpringLayout.WEST, this);
 		nLabel.setFont(new Font("Georgia", Font.PLAIN, 30));
 		
-		setupPanel();
-	}
-	
-	public void setupPanel()
-	{
+		
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(1000, 800));
 		this.add(start);
 		this.add(history);
 		this.add(title);
 		this.add(nLabel);
+	}
+	
+	private void setupLayout()
+	{
+		
 	}
 	
 	

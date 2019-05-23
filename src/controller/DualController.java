@@ -36,13 +36,6 @@ public class DualController
 			save = IOController.loadUserData("User.dbn");
 			IOController.saveToString("dbn.txt", save);
 		}
-		else
-		{
-			save = new ArrayList<UserData>();
-			save.add(new UserData());
-			IOController.saveUserData(save, "User.dbn");
-
-		}
 
 		n = (int) save.get(save.size() - 1).getN(); 
 		score = 0;

@@ -12,6 +12,7 @@ public class GamePanel extends JPanel
 {
 	private DualController app;
 	private SpringLayout appLayout;
+	private GridLayout buttonLayout;
 	
 	private JButton oneOne;
 	private JButton oneTwo;
@@ -33,8 +34,10 @@ public class GamePanel extends JPanel
 		
 		this.app = app;
 		appLayout = new SpringLayout();
+		buttonLayout = new GridLayout(3, 3);
 		
-		gridPanel = new JPanel(new GridLayout(3, 3)); 
+		
+		gridPanel = new JPanel(); 
 		appLayout.putConstraint(SpringLayout.NORTH, gridPanel, 49, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, gridPanel, 100, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, gridPanel, -136, SpringLayout.SOUTH, this);
@@ -163,6 +166,9 @@ public class GamePanel extends JPanel
 		threeTwo.setBackground(Color.white);
 		threeThree.setBackground(Color.white);
 		
+		gridPanel.setLayout(buttonLayout);
+		buttonLayout.setHgap(10);
+		buttonLayout.setVgap(10);
 		
 		gridPanel.add(oneOne);
 		gridPanel.add(oneTwo);

@@ -27,6 +27,7 @@ public class GamePanel extends JPanel
 	private JButton sound;
 	private JButton position;
 	private Color niceColor;
+	private Color backColor;
 	
 	public GamePanel(DualController app)
 	{
@@ -44,6 +45,7 @@ public class GamePanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, gridPanel, -100, SpringLayout.EAST, this);
 				
 		niceColor = new Color(0, 191, 255);
+		backColor = new Color(215, 192, 255, 50);
 		
 		oneOne = new JButton();
 		oneTwo = new JButton();
@@ -160,13 +162,14 @@ public class GamePanel extends JPanel
 		oneTwo.setBackground(Color.white);
 		oneThree.setBackground(Color.white);
 		twoOne.setBackground(Color.white);
-		twoTwo.setBackground(Color.LIGHT_GRAY);
+		twoTwo.setVisible(false);
 		twoThree.setBackground(Color.white);
 		threeOne.setBackground(Color.white);
 		threeTwo.setBackground(Color.white);
 		threeThree.setBackground(Color.white);
 		
 		gridPanel.setLayout(buttonLayout);
+		gridPanel.setBackground(new Color(0, 0, 0, 0));
 		buttonLayout.setHgap(10);
 		buttonLayout.setVgap(10);
 		
@@ -185,6 +188,7 @@ public class GamePanel extends JPanel
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(1000, 800));
+		this.setBackground(backColor);
 		this.add(gridPanel);
 		this.add(sound);
 		this.add(position);

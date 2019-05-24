@@ -18,6 +18,7 @@ public class BasePanel extends JPanel
 	private DualController app;
 	private SpringLayout appLayout;
 	private CardLayout card;
+	private Color backColor;
 	
 	private JPanel basePanel;
 	private GamePanel game;
@@ -27,6 +28,7 @@ public class BasePanel extends JPanel
 	private JButton homeButton;
 	private ReviewPanel results;
 	private HistoryPanel history;
+	private JButton back;
 	
 	
 	final static String START = "startScreen";
@@ -46,11 +48,19 @@ public class BasePanel extends JPanel
 		results = new ReviewPanel(app);
 		history = new HistoryPanel(app);
 		
+		backColor = new Color(215, 192, 255, 50);
+		
+		start.setBackground(backColor);
+		results.setBackground(backColor);
+		history.setBackground(backColor);
+		
+		
 		appLayout = new SpringLayout();
 		
 		startButton = (JButton)(start.getComponent(0));
 		historyButton = (JButton)(start.getComponent(1));
 		homeButton = (JButton)(results.getComponent(0));
+		back = (JButton)(history.getComponent(0));
 		
 		setupSubpanels();
 		setupPanel();
@@ -65,7 +75,6 @@ public class BasePanel extends JPanel
 		basePanel.add(game, GAME);
 		basePanel.add(results, RESULT);
 		basePanel.add(history, HISTORY);
-		
 	}
 	
 	private void setupPanel()
@@ -95,6 +104,16 @@ public class BasePanel extends JPanel
 		});
 		
 		homeButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				card.show(basePanel, START);
+				app.savePlay();
+			}
+			
+		});
+		
+		back.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{

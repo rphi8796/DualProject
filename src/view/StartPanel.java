@@ -32,21 +32,28 @@ public class StartPanel extends JPanel
 		
 		appLayout = new SpringLayout();
 		start = new JButton("Start");
+		appLayout.putConstraint(SpringLayout.SOUTH, start, -50, SpringLayout.SOUTH, this);
 		start.setFont(new Font("Georgia", Font.PLAIN, 20));
 		appLayout.putConstraint(SpringLayout.WEST, start, -275, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, start, -26, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.EAST, start, -75, SpringLayout.EAST, this);
 		history = new JButton("History");
+		appLayout.putConstraint(SpringLayout.NORTH, history, 650, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, history, -50, SpringLayout.SOUTH, this);
 		history.setFont(new Font("Georgia", Font.PLAIN, 20));
-		appLayout.putConstraint(SpringLayout.SOUTH, history, -26, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.NORTH, start, 0, SpringLayout.NORTH, history);
 		appLayout.putConstraint(SpringLayout.WEST, history, 60, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, history, 260, SpringLayout.WEST, this);
 		title = new JLabel("Dual-N Back");
-		appLayout.putConstraint(SpringLayout.NORTH, history, 624, SpringLayout.SOUTH, title);
 		appLayout.putConstraint(SpringLayout.EAST, title, 1000, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.WEST, title, 0, SpringLayout.WEST, this);
 		nLabel = new JLabel("N = ");
+		
+		start.setBorderPainted(false);
+		history.setBorderPainted(false);
+		start.setOpaque(true);
+		history.setOpaque(true);
+		start.setBackground(Color.white);
+		history.setBackground(Color.white);
 		
 		setupPanel();
 		setupLayout();

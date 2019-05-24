@@ -231,6 +231,26 @@ public class DualController
 		new Reminder(this, GAME_DURATION + PREPARE_TIME + 3);
 	}
 	
+	public ArrayList<UserData> getSave()
+	{
+		return save;
+	}
+	
+	public Object[][] getData()
+	{
+		Object[][] myList = new Object[11][3];
+		for(int row = 0; row < save.size(); row ++)
+		{
+			for(int col = 0; col < 4; col++)
+			{
+				
+			}
+		}
+		
+		
+		return myList;
+	}
+	
 	public int getN()
 	{
 		return n;

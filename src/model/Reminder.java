@@ -26,10 +26,10 @@ public class Reminder
 	/**
 	 * checks the game after it finishes in 65 seconds.
 	 */
-	public Reminder(DualController app)
+	public Reminder(DualController app, int seconds)
 	{
 		timerOne = new Timer();
-		timerOne.schedule(new CheckingTask(timerOne, app), 86 * 1000);
+		timerOne.schedule(new CheckingTask(timerOne, app), seconds * 1000);
 	}
 	
 	/**

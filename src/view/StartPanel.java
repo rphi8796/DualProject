@@ -78,5 +78,10 @@ public class StartPanel extends JPanel
 		
 	}
 	
+	public void refreshPanel()
+	{
+		nLabel.setText("N = " + app.getN());
+	}
+	
 	
 }

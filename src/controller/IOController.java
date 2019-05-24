@@ -39,7 +39,7 @@ public class IOController
 	{
 		try
 		{
-			File soundFile = new File("/Users/rphi8796/Documents/Java/DualProject/src/sounds/" + fileName + ".wav");
+			File soundFile = new File("src/sounds/" + fileName + ".wav");
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			Clip comeOn = AudioSystem.getClip();
 			comeOn.open(audioIn);

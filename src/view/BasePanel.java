@@ -26,7 +26,7 @@ public class BasePanel extends JPanel
 	private JButton historyButton;
 	private JButton homeButton;
 	private ReviewPanel results;
-	private JPanel history;
+	private HistoryPanel history;
 	
 	
 	final static String START = "startScreen";
@@ -44,6 +44,7 @@ public class BasePanel extends JPanel
 		game = new GamePanel(app);
 		start = new StartPanel(app);
 		results = new ReviewPanel(app);
+		history = new HistoryPanel(app);
 		
 		appLayout = new SpringLayout();
 		
@@ -63,6 +64,7 @@ public class BasePanel extends JPanel
 		basePanel.add(start, START);
 		basePanel.add(game, GAME);
 		basePanel.add(results, RESULT);
+		basePanel.add(history, HISTORY);
 		
 	}
 	
@@ -88,7 +90,7 @@ public class BasePanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				card.show(basePanel, RESULT);
+				card.show(basePanel, HISTORY);
 			}
 		});
 		

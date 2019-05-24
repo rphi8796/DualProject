@@ -39,7 +39,11 @@ public class IOController
 	{
 		try
 		{
+<<<<<<< HEAD
 			File soundFile = new File("src/sounds/" + fileName + ".wav");
+=======
+			File soundFile = new File("/Users/ry/Documents/Java/DualProject/src/sounds/" + fileName + ".wav");
+>>>>>>> 66fa507c551d01f05bf4b30ada21d5fca6199eea
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			Clip comeOn = AudioSystem.getClip();
 			comeOn.open(audioIn);

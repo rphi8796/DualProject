@@ -23,6 +23,11 @@ public class DualController
 	private int outOf;
 	private ArrayList<UserData> save;
 	private UserData myRecent;
+	private final int TIME_INTERVAL = 3;
+	private final int NUM_OF_ELEMENTS = 10;
+	private final int DELAY = TIME_INTERVAL - 1;
+	private final int GAME_DURATION = TIME_INTERVAL * NUM_OF_ELEMENTS;
+	private final int PREPARE_TIME = 4;
 	
 	
 	/**
@@ -35,23 +40,26 @@ public class DualController
 		if(!(IOController.loadUserData("User.dbn").isEmpty()))
 		{
 			save = IOController.loadUserData("User.dbn");
+			myRecent = (save.get(save.size() - 1));
+			n = (int) myRecent.getN(); 
+			
+			if(myRecent.getPercentage() >= 90)
+			{
+				n += 1;
+			}
+			else if(myRecent.getPercentage() <= 75 && myRecent.getN() > 1)
+			{
+				n -= 1;
+			}
 		}
-		
-		myRecent = save.get(save.size() - 1);
-		n = (int) myRecent.getN(); 
-		
-		if(myRecent.getPercentage() >= 90)
+		else
 		{
-			n += 1;
-		}
-		else if(myRecent.getPercentage() <= 75 && myRecent.getN() > 1)
-		{
-			n -= 1;
+			n = 1;
 		}
 
 		
 		score = 0;
-		outOf = (20 - n) * 2;
+		outOf = (NUM_OF_ELEMENTS - n) * 2;
 		appFrame = new DualFrame(this);
 		appPanel = (BasePanel) (appFrame.getContentPane());
 		
@@ -91,8 +99,9 @@ public class DualController
 		{
 			n -= 1;
 		}
+		appPanel.getStartPanel().refreshPanel();
 		score = 0;
-		outOf = (20 - n) * 2;
+		outOf = (NUM_OF_ELEMENTS - n) * 2;
 		Data.soundIndex = 0;
 		Data.positionIndex = 0;
 		Data.userSoundClicks.clear();
@@ -114,7 +123,6 @@ public class DualController
 	 */
 	public void startGame()
 	{
-		reset();
 		nameOfFiles = new ArrayList<String>(
 				Arrays.asList("c", "h", "j", "k", "l", "o", "q", "r", "t"));
 		nameOfPositions = new ArrayList<String>(
@@ -131,12 +139,12 @@ public class DualController
 		System.out.println(Data.positions);
 		System.out.println(Data.sounds);
 		
-		for(int i = 5; i < 85; i+=4)
+		for(int i = PREPARE_TIME; i < PREPARE_TIME + GAME_DURATION; i+=TIME_INTERVAL)
 		{
 			new Reminder(i);
 		}
 		
-		for(int i = 8; i < 85; i+= 4)
+		for(int i = PREPARE_TIME + DELAY; i < PREPARE_TIME + GAME_DURATION; i+=TIME_INTERVAL)
 		{
 			new Reminder("Panel", i);
 		}
@@ -151,7 +159,7 @@ public class DualController
 	 */
 	public void createTheLists()
 	{
-		for(int i = 0; i < 20; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			
 //			Data.sounds.add(nameOfFiles.get(i % 3));
@@ -219,7 +227,7 @@ public class DualController
 	
 	public void checkTheLists()
 	{
-		new Reminder(this);
+		new Reminder(this, GAME_DURATION + PREPARE_TIME + 3);
 	}
 	
 	public int getN()
@@ -235,6 +243,11 @@ public class DualController
 	public BasePanel getPanel()
 	{
 		return appPanel;
+	}
+	
+	public int getOutOf()
+	{
+		return outOf;
 	}
 	
 	public int getPercentage()

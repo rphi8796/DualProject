@@ -63,7 +63,7 @@ public class ReviewPanel extends JPanel
 	
 	public void setResultsText()
 	{
-		scoreStatement.setText("You got " + app.getScore() + " out of " + (40 - 2 * app.getN()) + "!"
+		scoreStatement.setText("You got " + app.getScore() + " out of " + (app.getOutOf()) + "!"
 				+ System.lineSeparator() + "That is " + app.getPercentage() + "%");
 	}
 	

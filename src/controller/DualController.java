@@ -37,6 +37,7 @@ public class DualController
 	 */
 	public DualController()
 	{
+		save = new ArrayList<UserData>();
 		if(!(IOController.loadUserData("User.dbn").isEmpty()))
 		{
 			save = IOController.loadUserData("User.dbn");
@@ -77,7 +78,7 @@ public class DualController
 	{
 		String stringDate = "";
 		Calendar date = Calendar.getInstance();
-		stringDate += date.get(Calendar.MONTH) + "/";
+		stringDate += (date.get(Calendar.MONTH) + 1) + "/";
 		stringDate += date.get(Calendar.DAY_OF_MONTH) + "/";
 		stringDate += date.get(Calendar.YEAR);
 

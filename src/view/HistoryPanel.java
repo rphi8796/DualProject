@@ -27,6 +27,10 @@ public class HistoryPanel extends JPanel
 		 data = new Object[11][3];
 		 
 		 back = new JButton("Home");
+		 back.setFont(new Font("Georgia", Font.PLAIN, 20));
+		 back.setBorderPainted(false);
+		 back.setOpaque(true);
+		 back.setBackground(Color.white);
 
 		 
 		 setupJTable();

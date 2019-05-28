@@ -118,7 +118,6 @@ public class BasePanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				card.show(basePanel, START);
-				app.savePlay();
 			}
 			
 		});

@@ -63,7 +63,9 @@ public class DualController
 		outOf = (NUM_OF_ELEMENTS - n) * 2;
 		appFrame = new DualFrame(this);
 		appPanel = (BasePanel) (appFrame.getContentPane());
-		
+		save.add(new UserData(85, 4, ""));
+		save.add(new UserData(85, 4, ""));
+		save.add(new UserData(85, 4, ""));
 	}
 	
 	private int calculatePercentage(int score, int outOf)
@@ -243,12 +245,23 @@ public class DualController
 		myList[0][1] = "Score";
 		myList[0][2] = "Date";
 		
-		
-		for(int row = 1, index = save.size() - 1; row <= save.size(); row++, index--)
+		if(save.size() < 11)
 		{
-			myList[row][0] = save.get(index).getN();
-			myList[row][1] = save.get(index).getPercentage();
-			myList[row][2] = save.get(index).getDate();
+			for(int row = 1, index = save.size() - 1; row <= save.size(); row++, index--)
+			{
+				myList[row][0] = save.get(index).getN();
+				myList[row][1] = save.get(index).getPercentage();
+				myList[row][2] = save.get(index).getDate();
+			}
+		}
+		else
+		{
+			for(int row = 1, index = save.size() - 1; row < 11; row++, index--)
+			{
+				myList[row][0] = save.get(index).getN();
+				myList[row][1] = save.get(index).getPercentage();
+				myList[row][2] = save.get(index).getDate();
+			}
 		}
 		
 		return myList;

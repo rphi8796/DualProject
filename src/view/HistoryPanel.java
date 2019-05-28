@@ -37,14 +37,15 @@ public class HistoryPanel extends JPanel
 	 private void setupJTable()
 	 {
 		 
-		 for(int row = 0; row < data.length; row++)
-		 {
-			 for(int col = 0; col < data[0].length; col++)
-			 {
-				 data[row][col] = 1;
-				 
-			 }
-		 }
+//		 for(int row = 0; row < data.length; row++)
+//		 {
+//			 for(int col = 0; col < data[0].length; col++)
+//			 {
+//				 data[row][col] = "";
+//			 }
+//		 }
+		 
+		data = app.getUserHistory();
 		 
 		 userScores = new JTable(data, data[0]);
 		 appLayout.putConstraint(SpringLayout.SOUTH, userScores, -285, SpringLayout.SOUTH, this);
@@ -53,9 +54,6 @@ public class HistoryPanel extends JPanel
 		 userScores.setGridColor(Color.black);
 		 userScores.setRowHeight(45);
 		 userScores.doLayout();
-		 
-		 
-		 //userScores.setRowHeight(30);
 
 	 }
 	 

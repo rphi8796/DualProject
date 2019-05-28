@@ -40,7 +40,7 @@ public class UserData implements Serializable
 		return level;
 	}
 	
-	public String getData()
+	public String getDate()
 	{
 		return date;
 	}

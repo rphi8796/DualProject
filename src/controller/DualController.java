@@ -236,17 +236,20 @@ public class DualController
 		return save;
 	}
 	
-	public Object[][] getData()
-	{
+	public Object[][] getUserHistory()
+	{	
 		Object[][] myList = new Object[11][3];
-		for(int row = 0; row < save.size(); row ++)
-		{
-			for(int col = 0; col < 4; col++)
-			{
-				
-			}
-		}
+		myList[0][0] = "N";
+		myList[0][1] = "Score";
+		myList[0][2] = "Date";
 		
+		
+		for(int row = 1, index = save.size() - 1; row <= save.size(); row++, index--)
+		{
+			myList[row][0] = save.get(index).getN();
+			myList[row][1] = save.get(index).getPercentage();
+			myList[row][2] = save.get(index).getDate();
+		}
 		
 		return myList;
 	}

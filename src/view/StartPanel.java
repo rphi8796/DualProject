@@ -66,9 +66,10 @@ public class StartPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, title, 10, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, title, 70, SpringLayout.NORTH, this);
 		nLabel = new JLabel("N = " + app.getN());
+		nLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		appLayout.putConstraint(SpringLayout.NORTH, nLabel, 130, SpringLayout.SOUTH, title);
-		appLayout.putConstraint(SpringLayout.WEST, nLabel, 450, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.EAST, nLabel, 550, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, nLabel, 0, SpringLayout.WEST, title);
+		appLayout.putConstraint(SpringLayout.EAST, nLabel, 1000, SpringLayout.WEST, this);
 		nLabel.setFont(new Font("Georgia", Font.PLAIN, 30));
 		
 		
@@ -83,11 +84,6 @@ public class StartPanel extends JPanel
 	private void setupLayout()
 	{
 		
-	}
-	
-	public void refreshPanel()
-	{
-		nLabel.setText("N = " + app.getN());
 	}
 	
 	

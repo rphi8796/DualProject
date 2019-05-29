@@ -36,9 +36,11 @@ public class ReviewPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.EAST, newN, -10, SpringLayout.EAST, this);
 		newN.setFont(new Font("Georgia", Font.PLAIN, 30));
 		home = new JButton("Home");
+		home.setFont(new Font("Georgia", Font.PLAIN, 20));
 		appLayout.putConstraint(SpringLayout.WEST, home, 75, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, home, 275, SpringLayout.WEST, this);
 		restart = new JButton("Restart");
+		restart.setFont(new Font("Georgia", Font.PLAIN, 20));
 		appLayout.putConstraint(SpringLayout.NORTH, restart, 365, SpringLayout.SOUTH, newN);
 		appLayout.putConstraint(SpringLayout.SOUTH, restart, -25, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.NORTH, home, 0, SpringLayout.NORTH, restart);

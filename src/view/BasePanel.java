@@ -2,7 +2,9 @@ package view;
 
 import controller.DualController;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
@@ -26,6 +28,7 @@ public class BasePanel extends JPanel
 	private JButton startButton;
 	private JButton historyButton;
 	private JButton homeButton;
+	private JButton resetButton;
 	private ReviewPanel results;
 	private HistoryPanel history;
 	private JButton back;
@@ -61,6 +64,7 @@ public class BasePanel extends JPanel
 		historyButton = (JButton)(start.getComponent(1));
 		homeButton = (JButton)(results.getComponent(0));
 		back = (JButton)(history.getComponent(0));
+		resetButton = (JButton)(results.getComponent(1));
 		
 		setupSubpanels();
 		setupPanel();
@@ -99,6 +103,7 @@ public class BasePanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
+				history.setupJTable();
 				card.show(basePanel, HISTORY);
 			}
 		});
@@ -107,8 +112,9 @@ public class BasePanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				card.show(basePanel, START);
 				app.savePlay();
+				app.reset();
+				card.show(basePanel, START);
 			}
 			
 		});
@@ -122,6 +128,21 @@ public class BasePanel extends JPanel
 			
 		});
 		
+		resetButton.addActionListener(new ActionListener()
+				{
+				public void actionPerformed(ActionEvent click)
+				{
+					app.reset();
+					card.show(basePanel, GAME);
+					app.startGame();
+				}
+				});
+	}
+	
+	public void refreshStart()
+	{
+		JLabel nLabel = (JLabel) start.getComponent(3);
+		nLabel.setText("N = " + app.getN());
 	}
 	
 	public GamePanel getGamePanel()

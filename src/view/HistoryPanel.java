@@ -38,16 +38,8 @@ public class HistoryPanel extends JPanel
 		 setupLayout();
 	 }
 	 
-	 private void setupJTable()
+	 public void setupJTable()
 	 {
-		 
-//		 for(int row = 0; row < data.length; row++)
-//		 {
-//			 for(int col = 0; col < data[0].length; col++)
-//			 {
-//				 data[row][col] = "";
-//			 }
-//		 }
 		 
 		data = app.getUserHistory();
 		 

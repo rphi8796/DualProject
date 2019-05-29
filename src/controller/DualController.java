@@ -65,6 +65,13 @@ public class DualController
 		appPanel = (BasePanel) (appFrame.getContentPane());
 	}
 	
+	/**
+	 * calculates the value of the score divided by the total possible points
+	 * 
+	 * @param score
+	 * @param outOf
+	 * @return the score as  a percentage rounded to the nearest hundredth
+	 */
 	private int calculatePercentage(int score, int outOf)
 	{
 		double percent = ((double) score) / outOf;
@@ -72,6 +79,7 @@ public class DualController
 		int output = (int) (percent * 100);
 		return output;
 	}
+	
 	
 	public void savePlay()
 	{

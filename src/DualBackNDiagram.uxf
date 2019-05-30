@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>530</x>
+      <y>10</y>
+      <w>470</w>
+      <h>810</h>
+    </coordinates>
+    <panel_attributes>model
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1040</x>
+      <y>0</y>
+      <w>440</w>
+      <h>810</h>
+    </coordinates>
+    <panel_attributes>view
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>10</y>
+      <w>520</w>
+      <h>710</h>
+    </coordinates>
+    <panel_attributes>controller
+--
+bg=orange
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>50</y>
+      <w>450</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>DualController
+--
++ DualFrame : appFrame
++ BasePanel : appPanel
++ int : n
++ int : score
++ int : outOf
+
+- ArrayList&lt;String&gt; : nameOfFiles
+- ArrayList&lt;String&gt; : nameOfPositions
+- ArrayList&lt;UserData&gt; : save
+- UserData : myRecent
+- int : TIME_INTERVAL
+- int : NUM_OF_ELEMENTS
+- int : DELAY
+- int : GAME_DURATION
+- int : PREPARE_TIME
+--
+
++ DualController() : constructor
++ savePlay() : void
++ reset() : void
++ startGame() : void
++ createTheLists() : void
++ displayResultsScreen() : void
++ gradePlayer() : void
++ checkTheLists() : void
++ getUserHistory() : Object[][]
++ getters
+- calculatePercentage(int score, int outOf) : int
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>540</y>
+      <w>450</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>DualRunner
+--
++ main(String args[]) : void
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>610</y>
+      <w>480</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>IOController
+--
++ playSound(String fileName) : void
++ saveUserData(ArrayList&lt;UserData&gt; userList, String saveFile) :  void
++ loadUserData(String saveFile) : ArrayList&lt;UserData&gt;
++ saveToString(String fileName, ArrayList&lt;UserData&gt; copy) : void
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>150</y>
+      <w>450</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Data
+--
++ ArrayList&lt;String&gt; : sounds
++ ArrayList&lt;String&gt; : positions
++ ArrayList&lt;String&gt; : userSoundClicks
++ ArrayList&lt;String&gt; : userPositionClicks
++ boolean : soundClicked
++ boolean : positionClicked
++ int : soundIndex
++ int : positionIndex
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>320</y>
+      <w>450</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>CheckingTask
+--
+- Timer : timer
+- DualController : app
+--
++ CheckingTask(Timer timer, DualController app) : constructor
++ run() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>430</y>
+      <w>450</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PanelTask
+--
+- Timer : timer
+--
++ PanelTask(Timer timer) : constructor
++ run() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>40</y>
+      <w>450</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>GameTask
+--
+- Timer : timer
+--
++ GameTask(Timer timer) : constructor
++ run() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>530</y>
+      <w>450</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Reminder
+--
+- Timer : timer
+- Timer : timerOne
+- Timer : timerTwo
+--
++ Reminder(int seconds) : constructor
++ Reminder(DualController app, int seconds) : constructor
++ Reminder(String panel, int seconds) : constructor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>670</y>
+      <w>450</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>UserData
+--
+- int : percentage
+- int : level
+- String : date
+--
++ UserData</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

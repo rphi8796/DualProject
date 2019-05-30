@@ -146,7 +146,7 @@ public class GamePanel extends JPanel
 	/**
 	 * This allows the buttons to change colors
 	 */
-	public void setupButtons()
+	private void setupButtons()
 	{
 		oneOne.setOpaque(true);
 		oneTwo.setOpaque(true);
@@ -196,7 +196,7 @@ public class GamePanel extends JPanel
 	 * Sets up the layout, dimension and components. Essentially setting
 	 * up the panel.
 	 */
-	public void setupPanel()
+	private void setupPanel()
 	{
 		this.setLayout(appLayout);
 		this.setPreferredSize(new Dimension(1000, 800));
@@ -210,7 +210,7 @@ public class GamePanel extends JPanel
 	/**
 	 * calls the auto generated code for the spring layout
 	 */
-	public void setupLayout()
+	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, gridPanel, 49, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, gridPanel, 100, SpringLayout.WEST, this);

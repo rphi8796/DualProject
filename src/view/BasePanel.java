@@ -34,10 +34,10 @@ public class BasePanel extends JPanel
 	private JButton back;
 	
 	
-	final static String START = "startScreen";
-	final static String GAME = "game";
-	final static String RESULT = "results";
-	final static String HISTORY = "history";
+	private final static String START = "startScreen";
+	private final static String GAME = "game";
+	private final static String RESULT = "results";
+	private final static String HISTORY = "history";
 	
 	/**
 	 * constructs a new panel and initializes a panel with a card layout
@@ -186,6 +186,4 @@ public class BasePanel extends JPanel
 	{
 		card.show(basePanel, RESULT);
 	}
-	
-	
 }

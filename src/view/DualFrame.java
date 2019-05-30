@@ -32,7 +32,7 @@ public class DualFrame extends JFrame
 	 * sets the panel inside the frame, title, and dimension. sets frame to exit on close,
 	 * does not allow the frame to be resized, and sets the frame to be visible.
 	 */
-	public void setupFrame()
+	private void setupFrame()
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("Dual Back-n Test");

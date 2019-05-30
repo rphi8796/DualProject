@@ -39,6 +39,12 @@ public class BasePanel extends JPanel
 	final static String RESULT = "results";
 	final static String HISTORY = "history";
 	
+	/**
+	 * constructs a new panel and initializes a panel with a card layout
+	 * and all the other sub panels that are suppose to fit inside the
+	 * card layout panel. This calls the helper methods
+	 * @param app
+	 */
 	public BasePanel(DualController app)
 	{
 		super();
@@ -71,6 +77,10 @@ public class BasePanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * This sets up the card layout panel and adds the start, game, 
+	 * result, and history panels to the card layout.
+	 */
 	private void setupSubpanels()
 	{
 		basePanel.setPreferredSize(new Dimension(1000, 800));
@@ -81,6 +91,10 @@ public class BasePanel extends JPanel
 		basePanel.add(history, HISTORY);
 	}
 	
+	/**
+	 * This sets up the BasePanel and sets the spring layout
+	 * and adds the card layout panel to the BasePanel
+	 */
 	private void setupPanel()
 	{
 		this.setLayout(appLayout);
@@ -88,6 +102,10 @@ public class BasePanel extends JPanel
 		this.add(basePanel);
 	}
 	
+	/**
+	 * sets up the buttons so that they go to the correct screen
+	 * and call the necessary methods from the DualController.
+	 */
 	private void setupListeners()
 	{
 		startButton.addActionListener(new ActionListener()
@@ -139,6 +157,10 @@ public class BasePanel extends JPanel
 				});
 	}
 	
+	/**
+	 * sets the StartPanel's label that displays the n to
+	 * the correct value.
+	 */
 	public void refreshStart()
 	{
 		JLabel nLabel = (JLabel) start.getComponent(3);

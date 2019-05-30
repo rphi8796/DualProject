@@ -70,7 +70,7 @@ public class DualController
 	 * 
 	 * @param score
 	 * @param outOf
-	 * @return the score as  a percentage rounded to the nearest hundredth
+	 * @return the score as a percentage rounded to the nearest hundredth
 	 */
 	private int calculatePercentage(int score, int outOf)
 	{
@@ -80,7 +80,11 @@ public class DualController
 		return output;
 	}
 	
-	
+	/**
+	 * This saves the data of the users play through and it saves the
+	 * data user object and then saves the two string of the object 
+	 * to a text file.
+	 */
 	public void savePlay()
 	{
 		String stringDate = "";
@@ -95,6 +99,10 @@ public class DualController
 		IOController.saveToString("dbn.txt", save);
 	}
 	
+	/**
+	 * This resets the data required to start a new game and determines
+	 * the new value of n based on the recent play.
+	 */
 	public void reset()
 	{
 		myRecent = (save.get(save.size() - 1));
@@ -117,11 +125,6 @@ public class DualController
 		Data.userPositionClicks.clear();
 		Data.positions.clear();
 		Data.sounds.clear();
-	}
-	
-	public void checkN()
-	{
-		
 	}
 	
 	/**
@@ -197,6 +200,15 @@ public class DualController
 		appPanel.changeToResults();
 	}
 	
+	
+	/**
+	 * Checks how the player's actions aligned with how the lists repeated.
+	 * If the player clicked the buttons correctly, score is added to. 
+	 * @param soundPermutation
+	 * @param positionPermutation
+	 * @param userSound
+	 * @param userPosition
+	 */
 	public void gradePlayer(ArrayList<String> soundPermutation, ArrayList<String> positionPermutation, 
 							ArrayList<String> userSound, ArrayList<String> userPosition)
 	{
@@ -239,6 +251,10 @@ public class DualController
 		}
 	}
 	
+	/**
+	 * This sets the timer task that will check the game and then display the result
+	 * 3 seconds after the game ends.
+	 */
 	public void checkTheLists()
 	{
 		new Reminder(this, GAME_DURATION + PREPARE_TIME + 3);
@@ -249,6 +265,11 @@ public class DualController
 		return save;
 	}
 	
+	/**
+	 * Uses for loops to through the saved data and add the n, score, and date
+	 * to the 2D array.
+	 * @return the most recent ten results of the user in the form of a 2D array
+	 */
 	public Object[][] getUserHistory()
 	{	
 		Object[][] myList = new Object[11][3];

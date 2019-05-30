@@ -25,6 +25,10 @@ public class StartPanel extends JPanel
 	private JLabel title;
 	private JLabel nLabel;
 	
+	/**
+	 * Initializes the panel and its components.
+	 * @param app
+	 */
 	public StartPanel(DualController app)
 	{
 		super();
@@ -32,21 +36,49 @@ public class StartPanel extends JPanel
 		
 		appLayout = new SpringLayout();
 		start = new JButton("Start");
-		appLayout.putConstraint(SpringLayout.SOUTH, start, -50, SpringLayout.SOUTH, this);
-		start.setFont(new Font("Georgia", Font.PLAIN, 20));
-		appLayout.putConstraint(SpringLayout.WEST, start, -275, SpringLayout.EAST, this);
-		appLayout.putConstraint(SpringLayout.EAST, start, -75, SpringLayout.EAST, this);
+
 		history = new JButton("History");
+
+		title = new JLabel("Dual-N Back");
+
+		nLabel = new JLabel("N = ");
+		
+
+		
+		setupPanel();
+		setupLayout();
+	}
+	
+	/**
+	 * Sets the layout and dimension and then adds the components to 
+	 * the panel.
+	 */
+	private void setupPanel()
+	{	
+		this.setLayout(appLayout);
+		this.setPreferredSize(new Dimension(1000, 800));
+		this.add(start);
+		this.add(history);
+		this.add(title);
+		this.add(nLabel);
+	}
+	
+	/**
+	 * Sets up the layout of the panel.
+	 */
+	private void setupLayout()
+	{
 		appLayout.putConstraint(SpringLayout.NORTH, history, 650, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, history, -50, SpringLayout.SOUTH, this);
 		history.setFont(new Font("Georgia", Font.PLAIN, 20));
 		appLayout.putConstraint(SpringLayout.NORTH, start, 0, SpringLayout.NORTH, history);
 		appLayout.putConstraint(SpringLayout.WEST, history, 60, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, history, 260, SpringLayout.WEST, this);
-		title = new JLabel("Dual-N Back");
-		appLayout.putConstraint(SpringLayout.EAST, title, 1000, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.WEST, title, 0, SpringLayout.WEST, this);
-		nLabel = new JLabel("N = ");
+		
+		appLayout.putConstraint(SpringLayout.SOUTH, start, -50, SpringLayout.SOUTH, this);
+		start.setFont(new Font("Georgia", Font.PLAIN, 20));
+		appLayout.putConstraint(SpringLayout.WEST, start, -275, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.EAST, start, -75, SpringLayout.EAST, this);
 		
 		start.setBorderPainted(false);
 		history.setBorderPainted(false);
@@ -55,12 +87,9 @@ public class StartPanel extends JPanel
 		start.setBackground(Color.white);
 		history.setBackground(Color.white);
 		
-		setupPanel();
-		setupLayout();
-	}
-	
-	private void setupPanel()
-	{
+		appLayout.putConstraint(SpringLayout.EAST, title, 1000, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, title, 0, SpringLayout.WEST, this);
+		
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setFont(new Font("Georgia", Font.PLAIN, 50));
 		appLayout.putConstraint(SpringLayout.NORTH, title, 10, SpringLayout.NORTH, this);
@@ -71,19 +100,6 @@ public class StartPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, nLabel, 0, SpringLayout.WEST, title);
 		appLayout.putConstraint(SpringLayout.EAST, nLabel, 1000, SpringLayout.WEST, this);
 		nLabel.setFont(new Font("Georgia", Font.PLAIN, 30));
-		
-		
-		this.setLayout(appLayout);
-		this.setPreferredSize(new Dimension(1000, 800));
-		this.add(start);
-		this.add(history);
-		this.add(title);
-		this.add(nLabel);
-	}
-	
-	private void setupLayout()
-	{
-		
 	}
 	
 	

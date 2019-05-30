@@ -19,12 +19,6 @@ import java.util.Scanner;
 
 public class IOController 
 {
-	DualController app;
-	
-	public IOController(DualController app)
-	{
-		this.app = app;
-	}
 	/**
 	 * tries to get the name of a file in the sounds folder and then puts it in a string to initialize an new file.
 	 * Then an audioInputStream is initialized by a call to getAudioInputStream() with the parameter of the file
@@ -59,6 +53,11 @@ public class IOController
 		}
 	}
 	
+	/**
+	 * Saves the user data with an array in a .dbn file.
+	 * @param userList
+	 * @param saveFile
+	 */
 	public static void saveUserData(ArrayList<UserData> userList, String saveFile)
 	{
 		try
@@ -74,7 +73,13 @@ public class IOController
 			error.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Tries to get all the UserData objects from the .dbn file
+	 * but does not ruin the program if there is no file.
+	 * @param saveFile
+	 * @return an arrayList of user results
+	 */
 	public static ArrayList<UserData> loadUserData(String saveFile) 
 	{
 		ArrayList<UserData> saved = new ArrayList<UserData>();
@@ -97,6 +102,12 @@ public class IOController
 		return saved;
 	}
 	
+	/**
+	 * This goes through all of the UserData objects and calls their toString
+	 * and then saves that to a text file.
+	 * @param fileName
+	 * @param copy
+	 */
 	public static void saveToString(String fileName, ArrayList<UserData> copy)
 	{
 		try

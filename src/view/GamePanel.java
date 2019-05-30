@@ -29,6 +29,12 @@ public class GamePanel extends JPanel
 	private Color niceColor;
 	private Color backColor;
 	
+	/**
+	 * Constructs a new panel and initializes the buttons and 
+	 * grid that will hold the buttons that change color. It also 
+	 * uses helper methods to set things up.
+	 * @param app
+	 */
 	public GamePanel(DualController app)
 	{
 		super();
@@ -39,10 +45,7 @@ public class GamePanel extends JPanel
 		
 		
 		gridPanel = new JPanel(); 
-		appLayout.putConstraint(SpringLayout.NORTH, gridPanel, 49, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, gridPanel, 100, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, gridPanel, -136, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, gridPanel, -100, SpringLayout.EAST, this);
+
 				
 		niceColor = new Color(0, 191, 255);
 		backColor = new Color(215, 192, 255, 50);
@@ -58,18 +61,10 @@ public class GamePanel extends JPanel
 		threeThree = new JButton();
 
 		sound = new JButton("Sound");
-		sound.setFont(new Font("Georgia", Font.PLAIN, 20));
-		appLayout.putConstraint(SpringLayout.NORTH, sound, 36, SpringLayout.SOUTH, gridPanel);
-		appLayout.putConstraint(SpringLayout.WEST, sound, 200, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, sound, -40, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, sound, 400, SpringLayout.WEST, this);
+
 
 		position = new JButton("Position");
-		position.setFont(new Font("Georgia", Font.PLAIN, 20));
-		appLayout.putConstraint(SpringLayout.NORTH, position, 0, SpringLayout.NORTH, sound);
-		appLayout.putConstraint(SpringLayout.WEST, position, 200, SpringLayout.EAST, sound);
-		appLayout.putConstraint(SpringLayout.SOUTH, position, -40, SpringLayout.SOUTH, this);
-		appLayout.putConstraint(SpringLayout.EAST, position, -200, SpringLayout.EAST, this);
+
 		
 		setupButtons();
 		setupPanel();
@@ -78,6 +73,11 @@ public class GamePanel extends JPanel
 		
 	}
 	
+	/**
+	 * Uses a string to determine which button should "flash" on
+	 * based on a string.
+	 * @param button
+	 */
 	public void changeColor(String button)
 	{
 		if(button.equals("oneOne"))
@@ -126,6 +126,11 @@ public class GamePanel extends JPanel
 			threeThree.setBackground(niceColor);
 		}
 	}
+	
+	/**
+	 * This sets all the buttons to white so that they can 
+	 * all be "flash" off
+	 */
 	public void setButtonsToWhite()
 	{
 		oneOne.setBackground(Color.white);
@@ -138,6 +143,9 @@ public class GamePanel extends JPanel
 		threeThree.setBackground(Color.white);
 	}
 	
+	/**
+	 * This allows the buttons to change colors
+	 */
 	public void setupButtons()
 	{
 		oneOne.setOpaque(true);
@@ -184,6 +192,10 @@ public class GamePanel extends JPanel
 		gridPanel.add(threeThree);
 	}
 	
+	/**
+	 * Sets up the layout, dimension and components. Essentially setting
+	 * up the panel.
+	 */
 	public void setupPanel()
 	{
 		this.setLayout(appLayout);
@@ -195,11 +207,33 @@ public class GamePanel extends JPanel
 		
 	}
 	
+	/**
+	 * calls the auto generated code for the spring layout
+	 */
 	public void setupLayout()
 	{
+		appLayout.putConstraint(SpringLayout.NORTH, gridPanel, 49, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, gridPanel, 100, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, gridPanel, -136, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, gridPanel, -100, SpringLayout.EAST, this);
 		
+		position.setFont(new Font("Georgia", Font.PLAIN, 20));
+		appLayout.putConstraint(SpringLayout.NORTH, position, 0, SpringLayout.NORTH, sound);
+		appLayout.putConstraint(SpringLayout.WEST, position, 200, SpringLayout.EAST, sound);
+		appLayout.putConstraint(SpringLayout.SOUTH, position, -40, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, position, -200, SpringLayout.EAST, this);
+		
+		sound.setFont(new Font("Georgia", Font.PLAIN, 20));
+		appLayout.putConstraint(SpringLayout.NORTH, sound, 36, SpringLayout.SOUTH, gridPanel);
+		appLayout.putConstraint(SpringLayout.WEST, sound, 200, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, sound, -40, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, sound, 400, SpringLayout.WEST, this);
 	}
 	
+	/**
+	 * Sets up Listeners for the button so that the timers can know 
+	 * when the user thinks there was a repition.
+	 */
 	public void setupListeners()
 	{
 		sound.addActionListener(new ActionListener() 

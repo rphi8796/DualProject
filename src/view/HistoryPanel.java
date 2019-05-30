@@ -18,6 +18,12 @@ public class HistoryPanel extends JPanel
 	 private JButton back;
 	 private JTable userScores;
 	 
+	 /**
+	  * constructs a new panel with a JTable and a 2D array to display in the table.
+	  * It also initializes a panel to return the start screen. It finishes by calling
+	  * the helper methods
+	  * @param app
+	  */
 	 public HistoryPanel(DualController app)
 	 {
 		 super();
@@ -38,10 +44,13 @@ public class HistoryPanel extends JPanel
 		 setupLayout();
 	 }
 	 
+	 /**
+	  * sets up the JTable's text and its layout.
+	  */
 	 public void setupJTable()
 	 {
 		 
-		data = app.getUserHistory();
+		 data = app.getUserHistory();
 		 
 		 userScores = new JTable(data, data[0]);
 		 appLayout.putConstraint(SpringLayout.SOUTH, userScores, -285, SpringLayout.SOUTH, this);
@@ -53,6 +62,10 @@ public class HistoryPanel extends JPanel
 
 	 }
 	 
+	 /**
+	  * Sets the layout and dimension and adds the components to
+	  * the panel.
+	  */
 	 private void setupPanel()
 	 {
 		 this.setLayout(appLayout);
@@ -61,6 +74,9 @@ public class HistoryPanel extends JPanel
 		 this.add(userScores);
 	 }
 	 
+	 /**
+	  * sets the components to their position in the panel
+	  */
 	 private void setupLayout()
 	 {
 		 appLayout.putConstraint(SpringLayout.NORTH, userScores, 20, SpringLayout.NORTH, this);
